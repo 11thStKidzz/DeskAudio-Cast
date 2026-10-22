@@ -5,7 +5,7 @@
  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
  IgnorableNamespaces="uap desktop rescap">
- <Identity Name="11thStKidzz.DeskAudioCast" Publisher="CN=F8685FFB-73E3-4962-83BD-CEE132D1ADF6" Version="1.0.10.0" ProcessorArchitecture="x64"/>
+ <Identity Name="11thStKidzz.DeskAudioCast" Publisher="CN=F8685FFB-73E3-4962-83BD-CEE132D1ADF6" Version="1.0.11.0" ProcessorArchitecture="x64"/>
  <Properties><DisplayName>ms-resource:AppDisplayName</DisplayName><PublisherDisplayName>11thStKidzz</PublisherDisplayName><Logo>Assets\StoreLogo.png</Logo></Properties>
  <Dependencies>
   <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0"/>

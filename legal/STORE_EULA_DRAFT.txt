@@ -5,12 +5,12 @@
 
 适用代码按 GNU GPL 第 3 版或更新版本提供；第三方组件保留各自版权、许可证及通知。完整 GPL 随软件提供，也可阅读 https://www.gnu.org/licenses/gpl-3.0.html 。
 收费不限制按适用许可使用、研究、修改、复制、再分发（包括收费再分发）的权利。不对 GPL 代码另加禁止逆向工程、修改、复制或再分发的限制。这些应用条款不更改微软的账户、支付或商店服务条款。
-完整对应源码：https://github.com/HotRiver7/DeskAudio-Cast/releases/tag/v0.1.10 ，文件 DeskAudioCast-0.1.10-corresponding-source.zip。版权、许可及修改通知随软件和源码提供。
+完整对应源码：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.11 ，文件 DeskAudioCast-0.1.11-corresponding-source.zip。版权、许可及修改通知随软件和源码提供。
 本应用是独立项目，不是 Apple 官方或认证产品；HomePod、AirPlay 仅作兼容性说明。请只投送有权播放和分享的内容。延迟和兼容性取决于网络、设备及系统。
 许可证免责声明不排除法律不可排除的消费者权利。开源许可不表示获得所有第三方商标或专利授权。
 
 Applicable code is GNU GPL version 3 or later; third-party components retain their copyrights, licenses and notices. The full GPL accompanies the software and is available at https://www.gnu.org/licenses/gpl-3.0.html .
 Charging does not restrict rights under applicable licenses to use, study, modify, copy or redistribute, including redistribution for a fee. No additional prohibition on reverse engineering, modification, copying or redistribution is imposed on GPL-covered code. These application terms do not change Microsoft's account, payment or Store-service terms.
-Complete corresponding source: https://github.com/HotRiver7/DeskAudio-Cast/releases/tag/v0.1.10 , file DeskAudioCast-0.1.10-corresponding-source.zip. Copyright, license and change notices accompany the software and source.
+Complete corresponding source: https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.11 , file DeskAudioCast-0.1.11-corresponding-source.zip. Copyright, license and change notices accompany the software and source.
 This independent application is not an official or Apple-certified product. HomePod and AirPlay names describe compatibility only. Transmit only content you may play and share. Latency and compatibility depend on the network, receiver and system.
 Disclaimers do not exclude non-excludable statutory consumer rights. Open-source licensing is not a grant of all third-party trademark or patent rights.

@@ -43,7 +43,7 @@ def main():
         findings=privacy_scan.scan_bytes(source.read_bytes())
         if findings:raise ValueError('Source preflight finding at '+relative.as_posix())
         target=output/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
-    for name in ['README.md','SOURCE_BUILDING.md','RELEASE_GATES.json',
+    for name in ['README.md','SOURCE_BUILDING.md','DEPLOYMENT.md','RELEASE_GATES.json',
                  '.github/workflows/ci.yml','.github/workflows/release.yml','docs/图标生成说明.md',
                  'docs/license-evidence/PUBLIC_AUTHORIZATION_SOURCES.json',
                  'docs/license-evidence/F1-fixed-revision-review.json']:

@@ -874,10 +874,10 @@ airplay-pairing 0.1.0 — LICENSE
 airplay-resampler 0.1.0 — LICENSE
 airplay-rtsp 0.1.0 — LICENSE
 airplay-timing 0.1.0 — LICENSE
-audio-capture 0.1.10 — LICENSE
-audio-encode 0.1.10 — LICENSE
-cap-core 0.1.10 — LICENSE
-conexion-airplay 0.1.10 — LICENSE
+audio-capture 0.1.11 — LICENSE
+audio-encode 0.1.11 — LICENSE
+cap-core 0.1.11 — LICENSE
+conexion-airplay 0.1.11 — LICENSE
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 

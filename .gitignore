@@ -1,14 +1,39 @@
-target/
-node_modules/
-ui/dist/
-local-*/
-.env*
-*.pfx
-*.cer
-*.p12
-*.key
+# Rust
+/target
+/src-tauri/target
+/src-tauri/gen/schemas
+**/*.rs.bk
+Cargo.lock.bak
+
+# Node / Vite
+node_modules
+ui/dist
+ui/.vite
+
+# Tauri
+src-tauri/WixTools
+src-tauri/.tauri
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
 *.log
-*.pdb
-*.dmp
-*.msix
-*-setup.exe
+
+# Secrets — NUNCA commitear claves de firma
+*.key
+tauri_signing_*.txt
+.env
+.env.local
+
+# Local measurements must not be committed or uploaded by CI.
+/local-measurements/
+__pycache__/
+# Private local validation evidence, never distributable as-is.
+/local-validation/
+/local-source-preparation/
+/local-tools/
+/local-packages/

@@ -38,3 +38,7 @@ MSIX 声明 Microsoft.VCLibs.140.00.UWPDesktop 框架依赖；在创建界面前
 不改变音频采集、ALAC 编码、协议发送、三档缓冲、自动回退或声音质量参数。
 构建资料适配 Windows PowerShell 5 的原生 stderr 行为：保留测试/编译日志并依据真实退出码判定，未删除测试或忽略失败。源码指纹遍历提前剪除 target/node_modules 等既有排除目录，避免耗时遍历缓存，源码选择规则不变。
 
+# 2026-10-22 — 0.1.11 deployment candidate
+
+Preserved audio capture, ALAC transport and three buffer modes. Corrected this project's GitHub owner links to 11thStKidzz without changing upstream authorship. Added complete app-local Microsoft Fixed WebView2 layout and checks for both custom MSIX and NSIS, native startup diagnostics, pinned official material integrity records and separate Microsoft terms. NSIS includes an official offline VC++ installer with explicit consent, interactive Microsoft licensing, real exit-code handling and post-install DLL-version checks; Windows10 renderer RX ACLs apply only to the app's Runtime subtree. Large runtimes are not part of source Git/ZIP. Publisher deferred final Microsoft redistribution legal confirmation; local candidates are not a Store approval or legal-clearance claim.
+

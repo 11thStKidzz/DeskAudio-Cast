@@ -15,7 +15,7 @@ class PackagingTests(unittest.TestCase):
         manifest=ET.parse(ROOT/'packaging/windows/AppxManifest.xml').getroot()
         store_version=manifest.find('{http://schemas.microsoft.com/appx/manifest/foundation/windows10}Identity').attrib['Version']
         # Store package numbering is independent of the pre-1.0 application version.
-        self.assertEqual(store_version,'1.0.10.0')
+        self.assertEqual(store_version,'1.0.'+version.split('.')[-1]+'.0')
         parts=[int(p) for p in store_version.split('.')]
         self.assertTrue(0 < parts[0] <= 65535)
         self.assertTrue(all(0 <= p <= 65535 for p in parts))
@@ -55,8 +55,12 @@ class PackagingTests(unittest.TestCase):
         text=(ROOT/'packaging/windows/installer.nsi').read_text(encoding='utf-8')
         self.assertIn('RequestExecutionLevel user',text)
         self.assertIn('SetCompressor /SOLID zlib',text)
-        for forbidden in ['RMDir /r','taskkill','netsh','ExecWait','URLDownloadToFile','WriteRegStr HKLM']:
+        for forbidden in ['RMDir /r','taskkill','netsh','URLDownloadToFile','WriteRegStr HKLM']:
             self.assertNotIn(forbidden,text)
+        self.assertEqual(text.count('ExecWait'),1)
+        self.assertIn('ExecWait \'"$PLUGINSDIR\\vc_redist.x64.exe" /install /norestart',text)
+        self.assertIn('MB_DEFBUTTON2',text)
+        self.assertIn('Call VCRuntimeReady',text)
         self.assertIn('IfErrors in_use',text)
         self.assertIn('ReadRegStr $0 HKCU',text)
 

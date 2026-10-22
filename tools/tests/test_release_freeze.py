@@ -34,15 +34,18 @@ class ReleaseFreezeTests(unittest.TestCase):
         self.assertEqual(dependency.attrib['MinVersion'],'14.0.33728.0')
         self.assertEqual(dependency.attrib['Publisher'],'CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US')
         code = (ROOT/'src-tauri/src/runtime_prerequisites.rs').read_text(encoding='utf-8')
-        self.assertIn('RegGetValueW',code)
+        self.assertIn('fixed_runtime_ready',code)
+        self.assertNotIn('RegGetValueW',code)
         self.assertIn('MessageBoxW',code)
         for forbidden in ['Command::new','reqwest','URLDownloadToFile','RegSetValue']:
             self.assertNotIn(forbidden,code)
 
     def test_source_links_have_the_explicitly_approved_repository(self):
         text = (ROOT/'legal/OPEN_SOURCE.txt').read_text(encoding='utf-8')
-        self.assertIn('https://github.com/HotRiver7/DeskAudio-Cast/releases/tag/v0.1.10',text)
-        self.assertIn('DeskAudioCast-0.1.10-corresponding-source.zip',text)
+        import json
+        version=json.loads((ROOT/'src-tauri/tauri.conf.json').read_text(encoding='utf-8'))['version']
+        self.assertIn(f'https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v{version}',text)
+        self.assertIn(f'DeskAudioCast-{version}-corresponding-source.zip',text)
         self.assertIn('收费再分发',text)
         self.assertIn('redistribution for a fee',text)
 
