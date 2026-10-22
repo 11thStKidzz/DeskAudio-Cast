@@ -15,7 +15,7 @@ class PackagingTests(unittest.TestCase):
         manifest=ET.parse(ROOT/'packaging/windows/AppxManifest.xml').getroot()
         store_version=manifest.find('{http://schemas.microsoft.com/appx/manifest/foundation/windows10}Identity').attrib['Version']
         # Store package numbering is independent of the pre-1.0 application version.
-        self.assertEqual(store_version,'1.0.10.0')
+        self.assertEqual(store_version,'1.0.'+version.split('.')[-1]+'.0')
         parts=[int(p) for p in store_version.split('.')]
         self.assertTrue(0 < parts[0] <= 65535)
         self.assertTrue(all(0 <= p <= 65535 for p in parts))
