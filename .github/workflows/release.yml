@@ -1,0 +1,13 @@
+name: Manual publication only (automation disabled)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  blocked:
+    runs-on: windows-latest
+    steps:
+      - name: Do not publish
+        shell: pwsh
+        run: throw 'Automatic publication is disabled. Publish reviewed corresponding source and Store packages manually with explicit publisher authorization.'
+# Intentionally no checkout, token, upload or release actions.

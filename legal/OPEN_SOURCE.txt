@@ -1,0 +1,19 @@
+开源说明 / Open-source information
+
+桌面声渡 0.1.10 修改自 AirSend。适用代码按 GNU GPL 第 3 版或更新版本提供，全文附后。第三方版权和许可见“第三方声明”及安装目录 legal。
+收费不限制接收者按适用许可证使用、研究、修改、复制和再分发（包括收费再分发）的权利。免责声明不排除法律不可排除的权利。
+协议实现来自 lmcgartland/airplay2-rs，提交 f824007798f71605307384829800273a4dbbcee2，原始授权 GPL-3.0-or-later。修改及日期见 MODIFICATIONS.md、PROTOCOL_MODIFICATIONS.md 和对应源码记录。
+对应源码仓库：https://github.com/HotRiver7/DeskAudio-Cast
+完整同版本源码下载：https://github.com/HotRiver7/DeskAudio-Cast/releases/tag/v0.1.10
+请下载 DeskAudioCast-0.1.10-corresponding-source.zip，包含应用、协议、锁定依赖、原始许可和构建资料；按 SOURCE_BUILDING.md 构建。上游链接或 GitHub 自动源码 ZIP 不替代这个完整离线归档。
+开源许可不授予第三方商标或不受其专利条款覆盖的第三方专利权。
+发布者：11thStKidzz。支持：woyaotingspotify@gmail.com。
+
+DeskAudio Cast 0.1.10 is modified from AirSend. Applicable code is GNU GPL version 3 or later, with full text below. Third-party copyrights and licenses are retained in Third-party notices and the installed legal directory.
+Charging does not restrict recipients' rights under applicable licenses to use, study, modify, copy or redistribute, including redistribution for a fee. Disclaimers do not exclude non-excludable statutory rights.
+The protocol comes from lmcgartland/airplay2-rs revision f824007798f71605307384829800273a4dbbcee2, originally GPL-3.0-or-later. Dated changes are in MODIFICATIONS.md, PROTOCOL_MODIFICATIONS.md and the corresponding source.
+Source repository: https://github.com/HotRiver7/DeskAudio-Cast
+Complete matching source: https://github.com/HotRiver7/DeskAudio-Cast/releases/tag/v0.1.10
+Download DeskAudioCast-0.1.10-corresponding-source.zip, containing the application, protocol, locked dependencies, original licenses and build materials; follow SOURCE_BUILDING.md. Upstream links or GitHub's automatic source ZIP do not replace this complete offline archive.
+Open-source licenses do not grant third-party trademarks or patents outside their patent provisions.
+Publisher: 11thStKidzz. Support: woyaotingspotify@gmail.com.

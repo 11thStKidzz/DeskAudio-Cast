@@ -1,0 +1,139 @@
+{
+  "review_date": "2026-10-21",
+  "target": "windows-x64",
+  "components": [
+    {
+      "name": "Microsoft WebView2 SDK Loader",
+      "version": "1.0.3650.58",
+      "source": "https://api.nuget.org/v3-flatcontainer/microsoft.web.webview2/1.0.3650.58/microsoft.web.webview2.1.0.3650.58.nupkg",
+      "package_sha256": "911a472128c82ac8baa0c486c23342cc9dd6e7dc50d754e676726642ca065c60",
+      "loader_sha256": "8427b1fc58ec707813e5c0a51eb5d69397bb333250a7b891be4d3b123f1e0f1c",
+      "license_file": "WebView2-SDK-1.0.3650.58-LICENSE.txt",
+      "license_sha256": "0af8f1b807512aae39c2ac1aa4d0cae65cabecb6fd554b8439a5162a0d6eca55",
+      "evidence": "Original Microsoft NuGet LICENSE.txt; packaged loader hash equals the Rust dependency's x64 loader",
+      "license": "BSD-3-Clause",
+      "obligation": "Preserve Microsoft copyright, conditions and disclaimer; no endorsement",
+      "runtime_distinction": "WebView2 Runtime is separate and is not bundled or installed automatically",
+      "status": "original_loader_terms_and_identity_verified_not_patent_clearance"
+    },
+    {
+      "name": "NSIS",
+      "version": "3.11",
+      "source": "https://sourceforge.net/projects/nsis/files/NSIS%203/3.11/nsis-3.11.zip",
+      "archive_sha256": "c7d27f780ddb6cffb4730138cd1591e841f4b7edb155856901cdf5f214394fa1",
+      "license_file": "NSIS-3.11-COPYING.txt",
+      "license_sha256": "e7dd514003ab96cb3ddccbc028fe5c795fccf57dc41f21cfb9d4dd16ead23bf5",
+      "distribution": "Installer stub and built-in MUI/System support; compiler is build-only",
+      "compression": "zlib only; no LZMA or bzip2 requested",
+      "obligation": "Retain original notice, do not claim upstream authorship; no modified NSIS sources",
+      "status": "original_terms_preserved_and_tool_version_verified"
+    },
+    {
+      "name": "Visual C++ and Windows system runtimes",
+      "distribution": "NOT bundled. MSIX references Microsoft's VCLibs Desktop framework; NSIS requires system VCRUNTIME140/VCRUNTIME140_1 and UCRT",
+      "msix_framework": "Microsoft.VCLibs.140.00.UWPDesktop",
+      "msix_framework_min_version": "14.0.33728.0",
+      "framework_deployment": "Microsoft Store deploys/updates the separately licensed framework; the application does not copy its DLLs or installer",
+      "framework_reference_source": "https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/cpp/libraries/c-runtime-packages-desktop-bridge",
+      "source": "https://learn.microsoft.com/cpp/windows/redistributing-visual-cpp-files",
+      "status": "no_redistributable_copied_no_runtime_installer_executed",
+      "remaining": "If a runtime installer is bundled later, review that exact version's redistribution terms and obtain user consent"
+    },
+    {
+      "name": "Rust standard library",
+      "version": "1.99.1 (58cf8f9c3 2026-10-13)",
+      "source": "Installed rustup stable-x86_64-pc-windows-msvc distribution; compiler identity recorded in build evidence",
+      "upstream": "https://github.com/rust-lang/rust/tree/58cf8f9c35b355199727627d07ae34a4e2846d67/library",
+      "license": "Apache-2.0 OR MIT, with original file/dependency-specific terms and exceptions in the full report",
+      "license_file": "rust-1.99.1/COPYRIGHT-library.html",
+      "license_sha256": "5647be074c8edf7339fd863055923a8fc80bc5610a8d4661ec3b767b9d392c27",
+      "additional_license_files": [
+        {
+          "file": "rust-1.99.1/licenses/Apache-2.0.txt",
+          "sha256": "074e6e32c86a4c0ef8b3ed25b721ca23aca83df277cd88106ef7177c354615ff"
+        },
+        {
+          "file": "rust-1.99.1/licenses/BSD-2-Clause.txt",
+          "sha256": "f32fb3b417a194167cfad068223fc975ba96c5960513a10f66a3c28720aec1df"
+        },
+        {
+          "file": "rust-1.99.1/licenses/CC-BY-SA-4.0.txt",
+          "sha256": "23ee78c8bae49cf08ea2f0c84945c66b987ebe4520881fb51b3dad4fb43d07c2"
+        },
+        {
+          "file": "rust-1.99.1/licenses/GCC-exception-3.1.txt",
+          "sha256": "a3966c9410ef94a1efbfa9ec04e9c1994026a70623fbf0885ce36737bfba3b54"
+        },
+        {
+          "file": "rust-1.99.1/licenses/GPL-2.0-only.txt",
+          "sha256": "54b212ba1f97f6948fa5486239ab505dd820b02e50cbfd296b4062c8609a70af"
+        },
+        {
+          "file": "rust-1.99.1/licenses/GPL-3.0-or-later.txt",
+          "sha256": "05315fce6c35f79b8a35454828995fa26336f235895ac64557abc028f4ffcea2"
+        },
+        {
+          "file": "rust-1.99.1/licenses/ISC.txt",
+          "sha256": "0ff61769b238634e042ab759dddfd104a8e69d091e3600ae3410e401a6164381"
+        },
+        {
+          "file": "rust-1.99.1/licenses/LLVM-exception.txt",
+          "sha256": "e34c58338bd89d43e709e226610d8f32b3e3c47f4ad9a99a8dc1d4ac7842488e"
+        },
+        {
+          "file": "rust-1.99.1/licenses/MIT.txt",
+          "sha256": "b85dcd3e453d05982552c52b5fc9e0bdd6d23c6f8e844b984a88af32570b0cc0"
+        },
+        {
+          "file": "rust-1.99.1/licenses/NCSA.txt",
+          "sha256": "39cb0234065c92b9e6cee3830cbb52b1aa289aa8fe9ba2e66730fec5cf05c630"
+        },
+        {
+          "file": "rust-1.99.1/licenses/OFL-1.1.txt",
+          "sha256": "8eea8287e5876b539670cadb82e99f9a7afddec6f6730811be1daf25d2e9bcfd"
+        },
+        {
+          "file": "rust-1.99.1/licenses/Unicode-3.0.txt",
+          "sha256": "f5062c9a188d81dfe66b56db4182dcf9e4b17c0d9b0d311a8e20b3a1b075c443"
+        }
+      ],
+      "standard_library_artifacts": [
+        {
+          "file": "liballoc-f9fd422e5eb593ae.rlib",
+          "sha256": "ef5df2b944db14679cc916d06ce7cb81968d741a5c10f5f5cf8f5b247c764d7a"
+        },
+        {
+          "file": "libcompiler_builtins-9968a040cbc4bba8.rlib",
+          "sha256": "e613f49c6b4af902435d0ed839a425d59ddb2be752fe218bee3b10ee25a303ce"
+        },
+        {
+          "file": "libcore-f9527ed7f1165c0a.rlib",
+          "sha256": "9936159bb26e5ae403e680329382207b7f911bc8ebeeec41f6f68f2d43ed3f08"
+        },
+        {
+          "file": "libpanic_abort-98de92c372dfe6a9.rlib",
+          "sha256": "628f82003eaf53a991e81c3405bbea3c07e21a9a9ed80e0dc55878e6677771d8"
+        },
+        {
+          "file": "libpanic_unwind-4531eec6307bead5.rlib",
+          "sha256": "611f10423aa7c9ed6f22ed26bf0d374eb5566d990cae052b8cd0dbe444f7396c"
+        },
+        {
+          "file": "libstd-3854312d46c17a37.rlib",
+          "sha256": "b16900f6d673b96b07e11f583aa13e176d66b922a15cddf5f3bea8c51d4d7537"
+        },
+        {
+          "file": "libstd_detect-b1b36538f7570106.rlib",
+          "sha256": "2121ec6cf3179dd88b0ab0a0cbad4031b355abc3758ebfc3f8e76d55a3b2223f"
+        }
+      ],
+      "distribution": "Referenced parts statically linked in EXE; full compiler is build-only and not shipped",
+      "obligation": "Preserve original copyright/licenses and file-specific exceptions; when changing toolchain, regenerate the exact version notices",
+      "status": "original_installed_distribution_library_report_and_linked_runtime_identity_recorded_not_patent_clearance"
+    }
+  ],
+  "limitations": [
+    "Not legal advice or patent/trademark clearance",
+    "Actual final imports and payload must be scanned separately"
+  ]
+}

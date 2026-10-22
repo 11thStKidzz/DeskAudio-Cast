@@ -1,0 +1,10 @@
+[package]
+name = "audio-encode"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror = { workspace = true }
+tracing = { workspace = true }
+# TODO Hito 3/4: añadir alac-encoder cuando estemos en esa fase.

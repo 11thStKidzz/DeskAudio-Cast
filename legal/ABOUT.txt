@@ -1,0 +1,17 @@
+桌面声渡 / DeskAudio Cast 0.1.10
+
+把 Windows 系统输出中正在播放的声音，通过可信局域网发送到兼容接收设备。
+这是基于 AirSend 和 airplay2-rs 修改的独立开源应用，不是 Apple 或上游项目的官方产品。
+保留 AirSend 原作者和其他贡献者的版权及许可证；适用代码按 GNU GPL 第 3 版或更新版本提供，第三方组件保留各自许可。
+HomePod、AirPlay 等名称仅用于兼容性说明，商标属于各自权利人，不表示其认可或背书。
+延迟和兼容性受网络、接收设备及系统影响；不保证零延迟、游戏级响应或所有视频的音画同步。
+发布者：11thStKidzz
+支持邮箱：woyaotingspotify@gmail.com
+
+Send audio playing through your Windows output to a compatible receiver on a trusted local network.
+An independent open-source application modified from AirSend and airplay2-rs, not an official Apple product or upstream release.
+Original AirSend and contributor copyrights and licenses are retained. Applicable code is GNU GPL version 3 or later; third-party components retain their licenses.
+HomePod and AirPlay names describe compatibility only. Their owners retain the trademarks; no endorsement is implied.
+Latency and compatibility depend on the network, receiver and system. Zero latency, gaming-grade response and lip sync for every video are not guaranteed.
+Publisher: 11thStKidzz
+Support: woyaotingspotify@gmail.com

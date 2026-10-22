@@ -1,0 +1,11 @@
+用户支持与反馈 / Support
+
+发布者：11thStKidzz。支持邮箱：woyaotingspotify@gmail.com。
+请提供软件版本、发生时间和问题描述。可以自愿附上诊断 JSON，先检查内容，不要发送旧原始日志、声音、密码、配对身份、完整家庭网络信息或私钥。软件不会自动发送邮件或附件。
+请确认电脑和接收设备在可信、可互通的网络中，检查 VPN、设备访问权限及 Windows 防火墙；不要关闭整个防火墙。
+源码与文档：https://github.com/HotRiver7/DeskAudio-Cast
+
+Publisher: 11thStKidzz. Support: woyaotingspotify@gmail.com.
+Include the app version, incident time and issue description. You may voluntarily attach diagnostic JSON after reviewing it. Do not send old raw logs, audio, passwords, pairing identities, complete home-network details or private keys. No email or attachment is sent automatically.
+Use a trusted reachable network. Check VPN routing, receiver access and Windows Firewall; do not disable the entire firewall.
+Source and documentation: https://github.com/HotRiver7/DeskAudio-Cast

@@ -1,0 +1,498 @@
+{
+  "schema": 1,
+  "supplements": [
+    {
+      "name": "alloc-stdlib",
+      "version": "0.2.2",
+      "repository": "https://github.com/dropbox/rust-alloc-no-stdlib",
+      "license": "BSD-3-Clause",
+      "authors": [
+        "Daniel Reiter Horn <danielrh@dropbox.com>"
+      ],
+      "files": [
+        {
+          "file": "alloc.txt",
+          "url": "https://github.com/dropbox/rust-alloc-no-stdlib/blob/6032b6a9b20e03737135c55a0270ccffcc1438ef/LICENSE",
+          "git_blob_sha": "cd496ba72eb37e83a44958358d1f89a8a28cbc15"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "realfft",
+      "version": "3.5.0",
+      "repository": "https://github.com/HEnquist/realfft",
+      "license": "MIT",
+      "authors": [
+        "HEnquist <henrik.enquist@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "mit-standard.txt",
+          "url": "https://github.com/spdx/license-list-data/blob/main/text/MIT.txt",
+          "git_blob_sha": "d817195dad53ec992418c28ffca5fbd1cd86502a"
+        }
+      ],
+      "basis": "Fixed published package Cargo.toml and README declare MIT. Upstream has no complete license file; standard MIT template supplied without inventing a copyright notice. This is not an extra author grant.",
+      "rights_cleared": false
+    },
+    {
+      "name": "selectors",
+      "version": "0.36.1",
+      "repository": "https://github.com/servo/stylo",
+      "license": "MPL-2.0",
+      "authors": [
+        "The Servo Project Developers"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact upstream source header declares MPL-2.0 and links to Mozilla; standard MPL-2.0 text supplied from a fixed upstream copy; preserve all source headers.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-bundle-flac",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-bundle-mp3",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-codec-aac",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>",
+        "Kostya Shishkov <kostya.shiskov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-codec-adpcm",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>",
+        "Johannes Hackel <geckoxx90@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-codec-alac",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-codec-pcm",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-codec-vorbis",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-core",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-format-caf",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Ian Hobson <ian.r.hobson@gmail.com>",
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-format-isomp4",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-format-mkv",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Dariusz Niedoba <dariusz.niedoba@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-format-ogg",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-format-riff",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>",
+        "dedobbin <dedobbindedobbin@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-metadata",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "symphonia-utils-xiph",
+      "version": "0.5.5",
+      "repository": "https://github.com/pdeljanov/Symphonia",
+      "license": "MPL-2.0",
+      "authors": [
+        "Philip Deljanov <philip.deljanov@gmail.com>"
+      ],
+      "files": [
+        {
+          "file": "symphonia.txt",
+          "url": "https://github.com/pdeljanov/Symphonia/blob/6d533f26150953a882a6a111ebd13f0abf7129d5/LICENSE",
+          "git_blob_sha": "f4bbcd200ad42bbb2fe2faf67e87e8619fafc17a"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "unic-char-property",
+      "version": "0.9.0",
+      "repository": "https://github.com/open-i18n/rust-unic/",
+      "license": "MIT/Apache-2.0",
+      "authors": [
+        "The UNIC Project Developers"
+      ],
+      "files": [
+        {
+          "file": "unic.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-MIT",
+          "git_blob_sha": "31aa79387f27e730e33d871925e152e35e428031"
+        },
+        {
+          "file": "unic_apache.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-APACHE",
+          "git_blob_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "unic-char-range",
+      "version": "0.9.0",
+      "repository": "https://github.com/open-i18n/rust-unic/",
+      "license": "MIT/Apache-2.0",
+      "authors": [
+        "The UNIC Project Developers"
+      ],
+      "files": [
+        {
+          "file": "unic.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-MIT",
+          "git_blob_sha": "31aa79387f27e730e33d871925e152e35e428031"
+        },
+        {
+          "file": "unic_apache.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-APACHE",
+          "git_blob_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "unic-common",
+      "version": "0.9.0",
+      "repository": "https://github.com/open-i18n/rust-unic/",
+      "license": "MIT/Apache-2.0",
+      "authors": [
+        "The UNIC Project Developers"
+      ],
+      "files": [
+        {
+          "file": "unic.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-MIT",
+          "git_blob_sha": "31aa79387f27e730e33d871925e152e35e428031"
+        },
+        {
+          "file": "unic_apache.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-APACHE",
+          "git_blob_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "unic-ucd-ident",
+      "version": "0.9.0",
+      "repository": "https://github.com/open-i18n/rust-unic/",
+      "license": "MIT/Apache-2.0",
+      "authors": [
+        "The UNIC Project Developers"
+      ],
+      "files": [
+        {
+          "file": "unic_ident.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/8a6ce83063d90b91ae2ce59eddb803edd393fca9/LICENSE-MIT",
+          "git_blob_sha": "31aa79387f27e730e33d871925e152e35e428031"
+        },
+        {
+          "file": "unic_ident_apache.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/8a6ce83063d90b91ae2ce59eddb803edd393fca9/LICENSE-APACHE",
+          "git_blob_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "unic-ucd-version",
+      "version": "0.9.0",
+      "repository": "https://github.com/open-i18n/rust-unic/",
+      "license": "MIT/Apache-2.0",
+      "authors": [
+        "The UNIC Project Developers"
+      ],
+      "files": [
+        {
+          "file": "unic.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-MIT",
+          "git_blob_sha": "31aa79387f27e730e33d871925e152e35e428031"
+        },
+        {
+          "file": "unic_apache.txt",
+          "url": "https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/LICENSE-APACHE",
+          "git_blob_sha": "16fe87b06e802f094b3fbb0894b137bca2b16ef1"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "webview2-com",
+      "version": "0.38.2",
+      "repository": "https://github.com/wravery/webview2-rs",
+      "license": "MIT",
+      "authors": [],
+      "files": [
+        {
+          "file": "webview.txt",
+          "url": "https://github.com/wravery/webview2-rs/blob/b74dc5e2b394044bea5191052868ce7a106c202c/LICENSE",
+          "git_blob_sha": "de9a7e660e173136b351982a34f715af424ff812"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    },
+    {
+      "name": "webview2-com-sys",
+      "version": "0.38.2",
+      "repository": "https://github.com/wravery/webview2-rs",
+      "license": "MIT",
+      "authors": [],
+      "files": [
+        {
+          "file": "webview.txt",
+          "url": "https://github.com/wravery/webview2-rs/blob/b74dc5e2b394044bea5191052868ce7a106c202c/LICENSE",
+          "git_blob_sha": "de9a7e660e173136b351982a34f715af424ff812"
+        }
+      ],
+      "basis": "Exact crate-version VCS revision upstream license text. Preserve original grants and copyrights.",
+      "rights_cleared": false
+    }
+  ]
+}

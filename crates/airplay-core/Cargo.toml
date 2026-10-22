@@ -1,0 +1,59 @@
+[package]
+name = "cap-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lib]
+name = "cap_core"
+path = "src/lib.rs"
+
+[dependencies]
+tokio = { workspace = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+mdns-sd = { workspace = true }
+async-trait = "0.1"
+
+# Reutilizamos el sender AirPlay 2 alpha de lmcgartland/airplay2-rs
+# Explicit GPLv3 upstream f824007, with recorded DeskAudio Cast adaptations.
+# The old fork is retained privately for recovery, not linked or distributed.
+# Renombramos los paquetes para no colisionar con nuestro crate local (también
+# llamado airplay-core en el repo upstream).
+ap2rs-pairing = { package = "airplay-pairing", path = "../../vendor/airplay2-gpl3/crates/airplay-pairing" }
+ap2rs-core = { package = "airplay-core", path = "../../vendor/airplay2-gpl3/crates/airplay-core" }
+ap2rs-client = { package = "airplay-client", path = "../../vendor/airplay2-gpl3/crates/airplay-client" }
+ap2rs-audio = { package = "airplay-audio", path = "../../vendor/airplay2-gpl3/crates/airplay-audio" }
+
+[dev-dependencies]
+tracing-subscriber = { workspace = true }
+ap2rs-crypto = { package = "airplay-crypto", path = "../../vendor/airplay2-gpl3/crates/airplay-crypto" }
+symphonia = { version = "0.5", features = ["alac"] }
+
+[[example]]
+name = "probe_cli"
+path = "examples/probe_cli.rs"
+
+[[example]]
+name = "pair_cli"
+path = "examples/pair_cli.rs"
+
+[[example]]
+name = "tone_cli"
+path = "examples/tone_cli.rs"
+
+[[example]]
+name = "stream_cli"
+path = "examples/stream_cli.rs"
+required-features = []
+
+[dev-dependencies.audio-capture]
+path = "../audio-capture"
+
+[dev-dependencies.crossbeam-channel]
+version = "0.5"
+
+[dependencies.ap2rs-discovery]
+package = "airplay-discovery"
+path = "../../vendor/airplay2-gpl3/crates/airplay-discovery"

@@ -1,0 +1,857 @@
+//! Streaming en tiempo real al HomePod sobre una sesión ya pareada.
+//!
+//! Para Hito 4a generamos un tono sintético de prueba. La misma API
+//! (`StreamHandle::push_pcm`) sirve para conectar el WASAPI loopback en Hito 3+:
+//! quien produce el audio sólo necesita mandar `LivePcmFrame`s al sender.
+
+use std::f32::consts::TAU;
+use std::sync::Arc;
+use std::time::{Duration, Instant};
+
+use crate::stream_metrics::StreamMetrics;
+use ap2rs_audio::AlacEncoder;
+pub use ap2rs_audio::{LiveAudioDecoder, LiveDiagnosticsHandle, LiveFrameSender, LivePcmFrame, LiveStreamOptions};
+pub use ap2rs_client::Connection;
+use ap2rs_core::codec::{AudioCodec, AudioFormat};
+use ap2rs_core::stream::{PtpMode, StreamConfig, StreamType, TimingProtocol};
+use ap2rs_core::Device as Ap2Device;
+use thiserror::Error;
+use tokio::sync::Mutex as AsyncMutex;
+use tokio::task::JoinHandle;
+
+use crate::pairing::{DeviceDescriptor, PairingError, HOMEPOD_TRANSIENT_PIN};
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, serde::Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum LocalBufferPolicy {
+    #[default]
+    Stable,
+    Balanced,
+    LowLatency,
+}
+impl LocalBufferPolicy {
+    pub fn options(self) -> LiveStreamOptions {
+        match self {
+            Self::Stable => LiveStreamOptions {
+                buffer_ms: 320, startup_ms: 160, refill_ms: 128, resume_ms: 64,
+                startup_timeout: Duration::from_secs(2), sender_capacity: 1, max_age: None,
+            },
+            Self::Balanced => LiveStreamOptions {
+                buffer_ms: 160,
+                startup_ms: 80,
+                refill_ms: 64,
+                resume_ms: 32,
+                startup_timeout: Duration::from_secs(2),
+                sender_capacity: 1,
+                // Keep continuous samples/timestamps; do not use the
+                // experimental policy's age-based audio eviction.
+                max_age: None,
+            },
+            Self::LowLatency => LiveStreamOptions {
+                buffer_ms: 64, startup_ms: 32, refill_ms: 24, resume_ms: 16,
+                startup_timeout: Duration::from_secs(2), sender_capacity: 1, max_age: None,
+            },
+        }
+    }
+    pub fn input_capacity(self) -> usize {
+        match self {
+            Self::Stable => 32,
+            Self::Balanced => 16,
+            Self::LowLatency => 8,
+        }
+    }
+}
+
+/// Intervalo entre RTSP `feedback` requests. El HomePod cierra la sesión si no
+/// recibe nada del sender durante ~10 s (timeout RTSP en
+/// `airplay-rtsp/src/connection.rs:137`). El TUI upstream usa 2 s; lo
+/// replicamos para tener margen amplio.
+const FEEDBACK_INTERVAL: Duration = Duration::from_secs(2);
+const CONNECTION_RETRY_DELAY: Duration = Duration::from_millis(750);
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum StreamStage {
+    ConnectAndPair,
+    Setup,
+    StartStreaming,
+    SetVolume,
+}
+
+impl std::fmt::Display for StreamStage {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let name = match self {
+            Self::ConnectAndPair => "connect/pair",
+            Self::Setup => "RTP setup",
+            Self::StartStreaming => "start streaming",
+            Self::SetVolume => "set volume",
+        };
+        f.write_str(name)
+    }
+}
+
+#[derive(Debug, Error)]
+pub enum StreamError {
+    #[error("pairing failed: {0}")]
+    Pairing(#[from] PairingError),
+    #[error("AirPlay {stage} error: {source}")]
+    Client {
+        stage: StreamStage,
+        #[source]
+        source: ap2rs_core::Error,
+    },
+    #[error("AirPlay connection still failed after {attempts} attempts: {last}")]
+    RetryExhausted {
+        attempts: u8,
+        #[source]
+        last: Box<StreamError>,
+    },
+    #[error("audio encoder error: {0}")]
+    Encoder(String),
+    #[error("latency must be 0–3000 ms in 100 ms steps (got {0} ms)")]
+    InvalidLatency(u32),
+}
+
+impl StreamError {
+    pub fn stage_code(&self) -> &'static str {
+        match self {
+            Self::Client { stage, .. } => match stage {
+                StreamStage::ConnectAndPair => "connect_pair",
+                StreamStage::Setup => "setup",
+                StreamStage::StartStreaming => "start",
+                StreamStage::SetVolume => "volume",
+            },
+            Self::RetryExhausted { last, .. } => last.stage_code(),
+            Self::Pairing(_) => "descriptor",
+            Self::Encoder(_) => "encoder",
+            Self::InvalidLatency(_) => "latency_setting",
+        }
+    }
+    pub fn is_timeout(&self) -> bool {
+        match self {
+            Self::Client { source, .. } => matches!(source, ap2rs_core::Error::Timeout),
+            Self::RetryExhausted { last, .. } => last.is_timeout(),
+            _ => false,
+        }
+    }
+}
+
+pub const DEFAULT_LATENCY_MS: u32 = 3000;
+pub const MIN_LATENCY_MS: u32 = 0;
+pub const MAX_LATENCY_MS: u32 = 3000;
+pub const LATENCY_STEP_MS: u32 = 100;
+
+pub fn validate_latency_ms(latency_ms: u32) -> Result<(), StreamError> {
+    if (MIN_LATENCY_MS..=MAX_LATENCY_MS).contains(&latency_ms) && latency_ms % LATENCY_STEP_MS == 0
+    {
+        Ok(())
+    } else {
+        Err(StreamError::InvalidLatency(latency_ms))
+    }
+}
+
+/// Requested receiver range, not an acoustic delay guarantee.
+pub fn latency_frames(latency_ms: u32) -> Result<(u32, u32), StreamError> {
+    validate_latency_ms(latency_ms)?;
+    // The tested receiver loses audible playback at smaller ranges even while
+    // UDP/control stay healthy. Protect every low setting, including persisted
+    // 0 ms settings and reconnects, using the tested 500 ms request.
+    // This is a disclosed stability floor, not a sub-500 ms playback fix.
+    if latency_ms <= 500 {
+        return Ok((22_050, 22_050));
+    }
+    let min_ms = (latency_ms / 4).clamp(100, 500);
+    Ok((min_ms * 44_100 / 1000, latency_ms * 44_100 / 1000))
+}
+
+/// Configuración usada para abrir el stream. Para Hito 4a fijamos ALAC 44.1k/16/2,
+/// timing NTP. Tono o captura, el formato es el mismo. `latency_ms` sets the
+/// maximum requested receiver buffer, not a guaranteed end-to-end delay.
+fn streaming_stream_config(latency_ms: u32) -> Result<StreamConfig, StreamError> {
+    let audio_format = AudioFormat {
+        codec: AudioCodec::Alac,
+        sample_rate: ap2rs_core::codec::SampleRate::Hz44100,
+        bit_depth: 16,
+        channels: 2,
+        frames_per_packet: 352,
+    };
+
+    // Magic cookie del codec ALAC: el HomePod lo necesita en SETUP para
+    // saber descodificar. Lo extraemos de un encoder temporal.
+    let asc = AlacEncoder::new(audio_format)
+        .map_err(|e| StreamError::Encoder(e.to_string()))?
+        .magic_cookie();
+
+    // Fixed min=max increased audible delay without fixing transitions on the
+    // test receiver. Keep the original range while investigating the cause.
+    // `ptp_mode` es ignorado por upstream cuando `timing_protocol == Ntp`.
+    let (latency_min, latency_max) = latency_frames(latency_ms)?;
+    Ok(StreamConfig {
+        stream_type: StreamType::Realtime,
+        audio_format,
+        timing_protocol: TimingProtocol::Ntp,
+        ptp_mode: PtpMode::Master,
+        latency_min,
+        latency_max,
+        supports_dynamic_stream_id: true,
+        asc: Some(asc),
+    })
+}
+
+/// Volumen por defecto al abrir el stream. AirPlay usa escala 0..1
+/// (0 = mute, 1 = máximo). 0.20 ≈ -25 dB, suave para no asustar pruebas.
+pub const DEFAULT_INITIAL_VOLUME: f32 = 0.20;
+
+/// Mantiene viva la tarea de heartbeat hasta que se dropea, momento en el que
+/// la aborta. Útil para que el caller pueda quedarse con `Arc<Mutex<Connection>>`
+/// y aun así garantizar que el heartbeat se para cuando el caller termina.
+pub struct HeartbeatGuard {
+    handle: Option<JoinHandle<()>>,
+}
+
+impl HeartbeatGuard {
+    /// Aborta la tarea de heartbeat sin esperar.
+    pub fn shutdown(&mut self) {
+        if let Some(h) = self.handle.take() {
+            h.abort();
+        }
+    }
+}
+
+impl Drop for HeartbeatGuard {
+    fn drop(&mut self) {
+        self.shutdown();
+    }
+}
+
+/// Maneja la sesión de streaming: la conexión + el sender de frames PCM + la
+/// tarea de heartbeat que mantiene viva la sesión RTSP.
+pub struct StreamHandle {
+    sender: LiveFrameSender,
+    metrics: Arc<StreamMetrics>,
+    /// `Connection` compartida con la tarea de heartbeat. Necesita `Mutex`
+    /// porque varias rutas (`set_volume`, `send_feedback`) requieren `&mut`.
+    connection: Arc<AsyncMutex<Connection>>,
+    heartbeat: HeartbeatGuard,
+    sample_rate: u32,
+    channels: u8,
+}
+
+impl StreamHandle {
+    pub fn metrics(&self) -> Arc<StreamMetrics> {
+        self.metrics.clone()
+    }
+    pub fn sample_rate(&self) -> u32 {
+        self.sample_rate
+    }
+
+    pub fn channels(&self) -> u8 {
+        self.channels
+    }
+
+    /// Encola un frame PCM interleaved i16. Si la cola está llena, lo descarta.
+    /// Devuelve `false` cuando se descartó.
+    pub fn push_pcm(&self, samples: Vec<i16>) -> bool {
+        self.sender.try_send(LivePcmFrame {
+            samples,
+            channels: self.channels,
+            sample_rate: self.sample_rate,
+        })
+    }
+
+    /// Ajusta el volumen del receptor AirPlay. Escala 0.0..=1.0.
+    pub async fn set_volume(&self, volume: f32) -> Result<(), StreamError> {
+        let v = volume.clamp(0.0, 1.0);
+        let mut conn = self.connection.lock().await;
+        conn.set_volume(v)
+            .await
+            .map_err(|source| StreamError::Client {
+                stage: StreamStage::SetVolume,
+                source,
+            })
+    }
+
+    /// Descompone el handle en sus partes para poder pasar el `sender` a un
+    /// hilo bombeador y mantener la `Connection` en el caller para control
+    /// (volumen, stop, etc.). El `HeartbeatGuard` debe mantenerse vivo todo el
+    /// tiempo que dure el streaming; en cuanto se dropea, el heartbeat para y
+    /// el HomePod cerrará la sesión al expirar el timeout RTSP de ~10 s.
+    pub fn into_parts(
+        self,
+    ) -> (
+        LiveFrameSender,
+        Arc<AsyncMutex<Connection>>,
+        HeartbeatGuard,
+        u32,
+        u8,
+    ) {
+        (
+            self.sender,
+            self.connection,
+            self.heartbeat,
+            self.sample_rate,
+            self.channels,
+        )
+    }
+}
+
+/// Abre un stream de audio en vivo al HomePod: pair-setup + setup() + start_streaming_live().
+/// Si `initial_volume` es `None`, usa `DEFAULT_INITIAL_VOLUME` (bajo). Si
+/// `latency_ms` is `None`, uses the safe 3 s upper bound.
+pub async fn open_live_stream(
+    descriptor: DeviceDescriptor,
+    initial_volume: Option<f32>,
+    latency_ms: Option<u32>,
+) -> Result<StreamHandle, StreamError> {
+    let mut prepared = prepare_live_stream(
+        descriptor,
+        initial_volume,
+        latency_ms,
+        LocalBufferPolicy::Stable,
+    )
+    .await?;
+    // This convenience API returns the producer handle after startup. Begin
+    // immediately; callers with a capture source use prepare_live_stream to
+    // feed the normal pre-roll before awaiting readiness.
+    prepared.options.startup_ms = 0;
+    prepared.start().await
+}
+
+/// Owns the prepared RTSP session. Dropping it cancels preparation safely.
+/// Feed `sender()` before awaiting `start()` to make pre-roll possible.
+pub struct PreparedLiveStream {
+    connection: Connection,
+    sender: LiveFrameSender,
+    decoder: LiveAudioDecoder,
+    metrics: Arc<StreamMetrics>,
+    options: LiveStreamOptions,
+    sample_rate: u32,
+    channels: u8,
+}
+impl PreparedLiveStream {
+    pub fn sender(&self) -> LiveFrameSender {
+        self.sender.clone()
+    }
+    pub fn metrics(&self) -> Arc<StreamMetrics> {
+        self.metrics.clone()
+    }
+    pub fn sample_rate(&self) -> u32 {
+        self.sample_rate
+    }
+    pub fn channels(&self) -> u8 {
+        self.channels
+    }
+    pub async fn start(self) -> Result<StreamHandle, StreamError> {
+        start_prepared_stream(self).await
+    }
+}
+
+pub async fn prepare_live_stream(
+    descriptor: DeviceDescriptor,
+    initial_volume: Option<f32>,
+    latency_ms: Option<u32>,
+    policy: LocalBufferPolicy,
+) -> Result<PreparedLiveStream, StreamError> {
+    validate_latency_ms(latency_ms.unwrap_or(DEFAULT_LATENCY_MS))?;
+    let result = retry_once_on_timeout(
+        || prepare_live_stream_once(descriptor.clone(), initial_volume, latency_ms, policy),
+        CONNECTION_RETRY_DELAY,
+    )
+    .await;
+    match result {
+        Ok(prepared) => Ok(prepared),
+        Err((1, error)) => Err(error),
+        Err((attempts, last)) => Err(StreamError::RetryExhausted {
+            attempts,
+            last: Box::new(last),
+        }),
+    }
+}
+
+async fn prepare_live_stream_once(
+    descriptor: DeviceDescriptor,
+    initial_volume: Option<f32>,
+    latency_ms: Option<u32>,
+    policy: LocalBufferPolicy,
+) -> Result<PreparedLiveStream, StreamError> {
+    descriptor.validate_connection()?;
+    let device = build_device(&descriptor)?;
+    let advertised_model = device.model.clone();
+    let advertised_features = device.features.0;
+    let config = streaming_stream_config(latency_ms.unwrap_or(DEFAULT_LATENCY_MS))?;
+    let sample_rate = config.audio_format.sample_rate.as_hz();
+    let channels = config.audio_format.channels;
+    let metrics = Arc::new(StreamMetrics::default());
+    let began = Instant::now();
+    tracing::info!(ip = %descriptor.ip, "open_live_stream: conectando + pairing");
+    let mut connection = Connection::connect_with_pin(device, config, HOMEPOD_TRANSIENT_PIN)
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::ConnectAndPair,
+            source,
+        })?;
+
+    metrics.attach_transport(connection.stream_stats());
+    metrics.stage("connect_pair", began.elapsed());
+    tracing::info!(%advertised_model, receiver_model = %connection.device().model,
+        advertised_features, receiver_features = connection.device().features.0,
+        "receiver capabilities after /info");
+    let began = Instant::now();
+    tracing::info!("connection establecida — setup() RTP");
+    connection
+        .setup()
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::Setup,
+            source,
+        })?;
+
+    metrics.stage("setup", began.elapsed());
+    let began = Instant::now();
+    // Ajustamos volumen ANTES de empezar streaming para que las primeras
+    // muestras no salgan al volumen que tuviera el HomePod previamente.
+    let target_vol = initial_volume
+        .unwrap_or(DEFAULT_INITIAL_VOLUME)
+        .clamp(0.0, 1.0);
+    connection
+        .set_volume(target_vol)
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::SetVolume,
+            source,
+        })?;
+    tracing::info!(volume = target_vol, "volumen inicial aplicado");
+
+    metrics.stage("initial_volume", began.elapsed());
+    let options = policy.options();
+    let (sender, decoder) = LiveAudioDecoder::create_pair_with_max_age(
+        sample_rate,
+        channels,
+        policy.input_capacity(),
+        options.max_age,
+    );
+    Ok(PreparedLiveStream {
+        connection,
+        sender,
+        decoder,
+        metrics,
+        options,
+        sample_rate,
+        channels,
+    })
+}
+
+async fn start_prepared_stream(prepared: PreparedLiveStream) -> Result<StreamHandle, StreamError> {
+    let PreparedLiveStream {
+        mut connection,
+        sender,
+        decoder,
+        metrics,
+        options,
+        sample_rate,
+        channels,
+    } = prepared;
+    let began = Instant::now();
+    connection
+        .start_streaming_live_with_options(decoder, options)
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::StartStreaming,
+            source,
+        })?;
+    metrics.stage("start", began.elapsed());
+
+    let connection = Arc::new(AsyncMutex::new(connection));
+
+    let heartbeat = spawn_heartbeat(connection.clone(), metrics.clone());
+
+    Ok(StreamHandle {
+        sender,
+        metrics,
+        connection,
+        heartbeat,
+        sample_rate,
+        channels,
+    })
+}
+
+async fn retry_once_on_timeout<T, F, Fut>(
+    mut operation: F,
+    retry_delay: Duration,
+) -> Result<T, (u8, StreamError)>
+where
+    F: FnMut() -> Fut,
+    Fut: std::future::Future<Output = Result<T, StreamError>>,
+{
+    match operation().await {
+        Ok(value) => Ok(value),
+        Err(error) if error.is_timeout() => {
+            tracing::warn!(error = %error, "AirPlay operation timed out; retrying once");
+            tokio::time::sleep(retry_delay).await;
+            operation().await.map_err(|error| (2, error))
+        }
+        Err(error) => Err((1, error)),
+    }
+}
+
+fn build_device(d: &DeviceDescriptor) -> Result<Ap2Device, PairingError> {
+    // Reutilizamos la construcción de pairing.rs vía un descriptor clonado.
+    d.clone().into_ap2_device()
+}
+
+/// Tono sintético de prueba (Hito 4a). Genera un seno a `freq` Hz durante
+/// `duration` y lo encola al stream a un ritmo de tiempo real.
+pub async fn play_test_tone(
+    handle: &StreamHandle,
+    freq: f32,
+    duration: Duration,
+    amplitude: f32,
+) -> Result<(), StreamError> {
+    const FRAMES_PER_PACKET: usize = 352;
+    let sample_rate = handle.sample_rate as f32;
+    let channels = handle.channels as usize;
+    let total_samples = (handle.sample_rate as u64 * duration.as_millis() as u64 / 1000) as usize;
+    let amp = amplitude.clamp(0.0, 1.0) * i16::MAX as f32;
+
+    // Ritmo en tiempo real: ~352 frames a 44.1k = ~8 ms por paquete.
+    let packet_dur =
+        Duration::from_micros((FRAMES_PER_PACKET as u64 * 1_000_000) / handle.sample_rate as u64);
+
+    let mut phase: f32 = 0.0;
+    let phase_inc = TAU * freq / sample_rate;
+    let mut produced = 0usize;
+
+    while produced < total_samples {
+        let remaining = (total_samples - produced).min(FRAMES_PER_PACKET);
+        let mut buf = Vec::with_capacity(remaining * channels);
+        for _ in 0..remaining {
+            let s = (phase.sin() * amp) as i16;
+            for _ in 0..channels {
+                buf.push(s);
+            }
+            phase += phase_inc;
+            if phase > TAU {
+                phase -= TAU;
+            }
+        }
+        if !handle.push_pcm(buf) {
+            tracing::warn!("cola llena, dropping frames (productor más rápido que red)");
+        }
+        produced += remaining;
+        tokio::time::sleep(packet_dur).await;
+    }
+
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::collections::VecDeque;
+
+    #[test]
+    fn balanced_policy_reduces_local_budget_without_expiring_audio() {
+        let options = LocalBufferPolicy::Balanced.options();
+        assert!(options.startup_ms <= options.buffer_ms);
+        assert!(options.resume_ms <= options.refill_ms);
+        assert!(options.refill_ms <= options.buffer_ms);
+        assert!(options.max_age.is_none());
+        let maximum_queued_ms = options.buffer_ms as f64
+            + (LocalBufferPolicy::Balanced.input_capacity() + options.sender_capacity) as f64
+                * 352.0 * 1000.0 / 44_100.0;
+        assert!(maximum_queued_ms < 500.0);
+        assert!(options.startup_ms < LiveStreamOptions::default().startup_ms);
+        let format = streaming_stream_config(1000).unwrap().audio_format;
+        assert_eq!(format.codec, AudioCodec::Alac);
+        assert_eq!(format.sample_rate.as_hz(), 44_100);
+        assert_eq!((format.bit_depth, format.channels), (16, 2));
+    }
+
+    #[test]
+    fn latency_slider_bounds_map_to_airplay_frames() {
+        assert_eq!(
+            latency_frames(DEFAULT_LATENCY_MS).unwrap(),
+            (22_050, 132_300)
+        );
+        assert_eq!(latency_frames(1000).unwrap(), (11_025, 44_100));
+        assert_eq!(latency_frames(1500).unwrap(), (16_537, 66_150));
+        assert_eq!(latency_frames(500).unwrap(), (22_050, 22_050));
+        for low in (MIN_LATENCY_MS..=500).step_by(100) {
+            assert_eq!(latency_frames(low).unwrap(), (22_050, 22_050));
+            let config = streaming_stream_config(low).unwrap();
+            assert_eq!((config.latency_min, config.latency_max), (22_050, 22_050));
+            assert_eq!(config.audio_format.codec, AudioCodec::Alac);
+            assert_eq!((config.audio_format.bit_depth, config.audio_format.channels), (16, 2));
+        }
+        let zero_config = streaming_stream_config(0).unwrap();
+        assert_eq!((zero_config.latency_min, zero_config.latency_max), (22_050, 22_050));
+        for invalid in [1, 199, 250, 3100] {
+            assert!(latency_frames(invalid).is_err());
+        }
+    }
+    fn timeout(stage: StreamStage) -> StreamError {
+        StreamError::Client {
+            stage,
+            source: ap2rs_core::Error::Timeout,
+        }
+    }
+
+    fn protocol_error(stage: StreamStage) -> StreamError {
+        StreamError::Client {
+            stage,
+            source: ap2rs_core::RtspError::UnexpectedStatus(500).into(),
+        }
+    }
+
+    async fn run_script(
+        outcomes: Vec<Result<&'static str, StreamError>>,
+    ) -> (Result<&'static str, (u8, StreamError)>, usize) {
+        let mut outcomes = VecDeque::from(outcomes);
+        let mut attempts = 0;
+        let result = retry_once_on_timeout(
+            || {
+                attempts += 1;
+                let outcome = outcomes.pop_front().expect("missing scripted outcome");
+                async move { outcome }
+            },
+            Duration::ZERO,
+        )
+        .await;
+        (result, attempts)
+    }
+
+    #[tokio::test]
+    async fn succeeds_without_retry() {
+        let (result, attempts) = run_script(vec![Ok("connected")]).await;
+        assert_eq!(result.unwrap(), "connected");
+        assert_eq!(attempts, 1);
+    }
+
+    #[tokio::test]
+    async fn retries_one_timeout_then_succeeds() {
+        let (result, attempts) = run_script(vec![
+            Err(timeout(StreamStage::ConnectAndPair)),
+            Ok("connected"),
+        ])
+        .await;
+        assert_eq!(result.unwrap(), "connected");
+        assert_eq!(attempts, 2);
+    }
+
+    #[tokio::test]
+    async fn reports_second_timeout() {
+        let (result, attempts) = run_script(vec![
+            Err(timeout(StreamStage::ConnectAndPair)),
+            Err(timeout(StreamStage::Setup)),
+        ])
+        .await;
+        let (reported_attempts, error) = result.unwrap_err();
+        assert_eq!(reported_attempts, 2);
+        assert!(error.is_timeout());
+        assert!(error.to_string().contains("RTP setup"));
+        assert_eq!(attempts, 2);
+    }
+
+    #[tokio::test]
+    async fn does_not_retry_protocol_errors() {
+        let (result, attempts) =
+            run_script(vec![Err(protocol_error(StreamStage::ConnectAndPair))]).await;
+        let (reported_attempts, error) = result.unwrap_err();
+        assert_eq!(reported_attempts, 1);
+        assert!(!error.is_timeout());
+        assert_eq!(attempts, 1);
+    }
+}
+
+fn spawn_heartbeat(
+    connection: Arc<AsyncMutex<Connection>>,
+    metrics: Arc<StreamMetrics>,
+) -> HeartbeatGuard {
+    // Heartbeat: el HomePod cierra la sesión si no recibe tráfico RTSP en ~10s.
+    // `start_streaming_live` upstream NO arranca ningún keepalive; el TUI
+    // upstream lo hace manualmente (airplay-tui/src/app.rs:713) cada 2 s.
+    let heartbeat_conn = connection.clone();
+    let feedback_metrics = metrics;
+    let heartbeat = tokio::spawn(async move {
+        let mut interval = tokio::time::interval(FEEDBACK_INTERVAL);
+        interval.set_missed_tick_behavior(tokio::time::MissedTickBehavior::Skip);
+        // Saltamos el primer tick inmediato — `start_streaming_live` acaba de
+        // hablar con el HomePod, no hace falta otro RTSP ya mismo.
+        interval.tick().await;
+        loop {
+            interval.tick().await;
+            let mut conn = heartbeat_conn.lock().await;
+            match tokio::time::timeout(Duration::from_secs(3), conn.send_feedback())
+                .await
+                .unwrap_or(Err(ap2rs_core::Error::Timeout))
+            {
+                Ok(()) => {
+                    feedback_metrics.feedback(true);
+                    tracing::debug!("heartbeat feedback OK");
+                }
+                Err(e) => {
+                    feedback_metrics.feedback(false);
+                    tracing::warn!(error = %e, "heartbeat feedback falló");
+                    // Si falla varias veces seguidas, igualmente seguimos: el
+                    // siguiente tick lo reintentará. Si la conexión está
+                    // realmente muerta, el pump empezará a recibir errores y
+                    // el caller hará shutdown del stream.
+                }
+            }
+        }
+    });
+
+    HeartbeatGuard {
+        handle: Some(heartbeat),
+    }
+}
+
+/// A group shares one decoder/encoder and RTP chronology. Receiver keys stay separate.
+pub struct PreparedGroupLiveStream {
+    connections: Vec<Connection>,
+    pub sender: LiveFrameSender,
+    decoder: LiveAudioDecoder,
+    pub metrics: Vec<Arc<StreamMetrics>>,
+    options: LiveStreamOptions,
+}
+pub struct GroupLiveHandle {
+    pub sender: LiveFrameSender,
+    pub outputs: Vec<(
+        Arc<AsyncMutex<Connection>>,
+        HeartbeatGuard,
+        Arc<StreamMetrics>,
+    )>,
+}
+
+pub async fn prepare_group_live_stream(
+    descriptors: Vec<DeviceDescriptor>,
+    volumes: &[f32],
+    latency_ms: u32,
+    policy: LocalBufferPolicy,
+) -> Result<PreparedGroupLiveStream, StreamError> {
+    if descriptors.len() != 2 || volumes.len() != 2 {
+        return Err(StreamError::Encoder(
+            "a synchronized group requires exactly two receivers".into(),
+        ));
+    }
+    let mut config = streaming_stream_config(latency_ms)?;
+    config.timing_protocol = TimingProtocol::Ptp;
+    let mut peers = descriptors
+        .iter()
+        .map(|d| d.ip.to_string())
+        .collect::<Vec<_>>();
+    let mut connections = Vec::new();
+    let mut metrics = Vec::new();
+    for descriptor in descriptors {
+        descriptor.validate_connection()?;
+        let device = descriptor.into_ap2_device()?;
+        if !device.features.supports_ptp() {
+            return Err(StreamError::Encoder(
+                "receiver does not advertise PTP".into(),
+            ));
+        }
+        let began = Instant::now();
+        let connection = tokio::time::timeout(
+            Duration::from_secs(15),
+            Connection::connect_with_pin(device, config.clone(), HOMEPOD_TRANSIENT_PIN),
+        )
+        .await
+        .unwrap_or(Err(ap2rs_core::Error::Timeout))
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::ConnectAndPair,
+            source,
+        })?;
+        let metric = Arc::new(StreamMetrics::default());
+        metric.stage("connect_pair", began.elapsed());
+        metrics.push(metric);
+        connections.push(connection);
+    }
+    let began = Instant::now();
+    connections[0]
+        .setup()
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::Setup,
+            source,
+        })?;
+    let clock = connections[0]
+        .ptp_master_clock_id()
+        .ok_or_else(|| StreamError::Encoder("PTP master clock unavailable".into()))?;
+    let offset = connections[0]
+        .timing_offset()
+        .ok_or_else(|| StreamError::Encoder("PTP timing unavailable".into()))?;
+    let updates = connections[0]
+        .timing_rx()
+        .ok_or_else(|| StreamError::Encoder("PTP updates unavailable".into()))?;
+    connections[1]
+        .setup_for_group(clock, offset, updates)
+        .await
+        .map_err(|source| StreamError::Client {
+            stage: StreamStage::Setup,
+            source,
+        })?;
+    if let Some(local) = connections[0].local_addr() {
+        peers.push(local.ip().to_string());
+    }
+    for (index, connection) in connections.iter_mut().enumerate() {
+        connection
+            .send_setpeers(&peers)
+            .await
+            .map_err(|source| StreamError::Client {
+                stage: StreamStage::Setup,
+                source,
+            })?;
+        metrics[index].stage("setup", began.elapsed());
+        connection
+            .set_volume(volumes[index])
+            .await
+            .map_err(|source| StreamError::Client {
+                stage: StreamStage::SetVolume,
+                source,
+            })?;
+    }
+    let options = policy.options();
+    let (sender, decoder) = LiveAudioDecoder::create_pair_with_max_age(
+        44100,
+        2,
+        policy.input_capacity(),
+        options.max_age,
+    );
+    Ok(PreparedGroupLiveStream {
+        connections,
+        sender,
+        decoder,
+        metrics,
+        options,
+    })
+}
+impl PreparedGroupLiveStream {
+    pub async fn start(self) -> Result<GroupLiveHandle, StreamError> {
+        let Self {
+            mut connections,
+            sender,
+            decoder,
+            metrics,
+            options,
+        } = self;
+        let (primary, members) = connections.split_at_mut(1);
+        let began = Instant::now();
+        primary[0]
+            .start_group_live(decoder, options, members)
+            .await
+            .map_err(|source| StreamError::Client {
+                stage: StreamStage::StartStreaming,
+                source,
+            })?;
+        let outputs = connections
+            .into_iter()
+            .zip(metrics)
+            .map(|(connection, metrics)| {
+                metrics.stage("start", began.elapsed());
+                let connection = Arc::new(AsyncMutex::new(connection));
+                let heartbeat = spawn_heartbeat(connection.clone(), metrics.clone());
+                (connection, heartbeat, metrics)
+            })
+            .collect();
+        Ok(GroupLiveHandle { sender, outputs })
+    }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "conexion-airplay-ui",
+  "private": true,
+  "version": "0.1.10",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test:devices": "node src/devices.test.mjs",
+    "test": "node --test src/devices.test.mjs src/i18n.test.mjs src/visible-poller.test.mjs src/latest-volume.test.mjs src/release-safety.test.mjs src/confirmed-operation.test.mjs src/tray-controls.test.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^2.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true
+  }
+}

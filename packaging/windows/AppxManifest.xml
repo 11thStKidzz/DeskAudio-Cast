@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Exact public Partner Center identity. Packaging does not sign, upload or publish. -->
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+ xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+ xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+ xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+ IgnorableNamespaces="uap desktop rescap">
+ <Identity Name="11thStKidzz.DeskAudioCast" Publisher="CN=F8685FFB-73E3-4962-83BD-CEE132D1ADF6" Version="1.0.10.0" ProcessorArchitecture="x64"/>
+ <Properties><DisplayName>ms-resource:AppDisplayName</DisplayName><PublisherDisplayName>11thStKidzz</PublisherDisplayName><Logo>Assets\StoreLogo.png</Logo></Properties>
+ <Dependencies>
+  <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0"/>
+  <PackageDependency Name="Microsoft.VCLibs.140.00.UWPDesktop" MinVersion="14.0.33728.0" Publisher="CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"/>
+ </Dependencies>
+ <Resources><Resource Language="en-US"/><Resource Language="zh-Hans"/></Resources>
+ <Applications><Application Id="DeskAudioCast" Executable="DeskAudioCast.exe" EntryPoint="Windows.FullTrustApplication">
+  <uap:VisualElements DisplayName="ms-resource:AppDisplayName" Description="ms-resource:AppDescription" BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png"/>
+  <Extensions><desktop:Extension Category="windows.startupTask" Executable="DeskAudioCast.exe" EntryPoint="Windows.FullTrustApplication"><desktop:StartupTask TaskId="DeskAudioCastStartup" Enabled="false" DisplayName="ms-resource:AppDisplayName"/></desktop:Extension></Extensions>
+ </Application></Applications>
+ <Capabilities><Capability Name="internetClient"/><Capability Name="privateNetworkClientServer"/><rescap:Capability Name="runFullTrust"/></Capabilities>
+</Package>

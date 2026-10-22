@@ -1,0 +1,20 @@
+name: Manual validation only (no uploads)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validation:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm --prefix ui ci
+      - run: npm --prefix ui test
+      - run: npm --prefix ui run build
+      - run: cargo test --workspace --all-targets --locked
+# No automatic push/tag triggers, release creation, artifact upload or cache upload.
+# Running on GitHub still sends logs to GitHub. Local validation is preferred.

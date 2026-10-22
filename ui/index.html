@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>桌面声渡 · DeskAudio Cast</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="icon" type="image/png" href="/brand-icon.png" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="header-row">
+          <div class="brand"><img src="/brand-icon.png" alt="" width="42" height="42" /><div><h1 data-i18n="app_title">桌面声渡</h1><small>DeskAudio Cast</small></div></div>
+          <button
+            id="lang-toggle"
+            class="lang-toggle"
+            type="button"
+            data-i18n="language"
+            data-i18n-attr="title:lang_toggle_title,aria-label:lang_toggle_title"
+          >语言</button>
+        </div>
+        <select id="language-select" hidden data-i18n-attr="aria-label:lang_toggle_title">
+          <option value="zh">简体中文</option><option value="en">English</option>
+          <option value="es">Español</option><option value="ru">Русский</option>
+          <option value="de">Deutsch</option><option value="ja">日本語</option>
+        </select>
+        <p class="subtitle" data-i18n="subtitle">将 Windows 系统声音投送到局域网中的兼容设备</p>
+      </header>
+      <section>
+        <div class="row">
+          <button id="scan" data-i18n="scan">Buscar dispositivos</button>
+          <button id="operation-cancel" type="button" hidden data-i18n="cancel">Cancelar</button>
+          <span id="status" class="status"></span>
+        </div>
+        <ul id="devices"></ul>
+        <div id="connection-result" role="status" aria-live="polite" hidden>
+          <p id="connection-message"></p>
+          <details id="connection-details" hidden>
+            <summary data-i18n="connection_details">查看连接诊断</summary>
+            <pre id="connection-error"></pre>
+          </details>
+        </div>
+        <div class="multi-control" hidden>
+          <label for="multi-device">
+            <input id="multi-device" type="checkbox" />
+            <span data-i18n="multi_device">Reproducir en varios dispositivos</span>
+          </label>
+          <p class="hint" data-i18n="multi_device_hint">Experimental: al conectar otro receptor durante la reproducción, se añadirá al audio actual. Los receptores pueden no estar perfectamente sincronizados.</p>
+        </div>
+        <details class="manual">
+          <summary data-i18n="audio_source">Fuente de audio de Windows</summary>
+          <label class="source-label" for="audio-source" data-i18n="audio_source">Fuente de audio de Windows</label>
+          <select id="audio-source"><option value="" data-i18n="audio_default">Salida predeterminada</option></select>
+          <button id="audio-refresh" type="button" data-i18n="refresh">Actualizar</button>
+          <p class="hint" data-i18n="audio_source_hint">Captura las aplicaciones que reproducen en esa salida. No redirige las aplicaciones a otro dispositivo.</p>
+          <p class="hint" data-i18n="wasapi_hint">使用 Windows 原生 WASAPI 回环，不需要安装虚拟声卡；本机也可能同时出声。</p>
+          <span id="audio-options-status" class="status" role="status"></span>
+        </details>
+        <details class="manual" hidden>
+          <summary data-i18n="group_summary">Parejas y sincronización (experimental)</summary>
+          <label><input id="stereo-pairs" type="checkbox" /><span data-i18n="stereo_pairs">Mostrar parejas configuradas en Apple Home</span></label>
+          <p class="hint" data-i18n="group_hint">Selecciona dos HomePods para probar un reloj y envío compartidos. Requiere PTP en la red. Si se pierde un miembro, se para todo el grupo.</p>
+          <div class="row"><select id="group-first" data-i18n-attr="aria-label:group_first"></select><select id="group-second" data-i18n-attr="aria-label:group_second"></select></div>
+          <button id="group-play" type="button" data-i18n="group_play">Probar reproducción sincronizada</button>
+          <span id="group-status" class="status" role="status"></span>
+        </details>
+        <div id="player" class="player" hidden>
+          <div class="player-row">
+            <button id="play-stop" class="play" data-i18n="play_generic">▶ Reproducir audio del PC</button>
+            <span id="player-status" class="status"></span>
+          </div>
+          <label class="vol">
+            <span data-i18n="volume">Volumen</span>
+            <input id="volume" type="range" min="0" max="100" value="20" />
+            <output id="vol-out">20%</output>
+          </label>
+          <div class="latency-control">
+            <h2 class="mode-title" data-i18n="playback_mode">播放模式</h2>
+            <div class="mode-buttons" role="group" data-i18n-attr="aria-label:playback_mode">
+              <button id="mode-ultra_low" type="button" aria-pressed="false" data-i18n="mode_ultra_low">极低延迟</button>
+              <button id="mode-balanced" type="button" aria-pressed="true" data-i18n="mode_balanced">均衡</button>
+              <button id="mode-stable" type="button" aria-pressed="false" data-i18n="mode_stable">稳定</button>
+            </div>
+            <p id="mode-description" class="hint"></p>
+            <p class="hint" data-i18n="mode_hint">切换会短暂重连。模式不代表实测毫秒数，接收设备仍可能增加延迟。</p>
+            <div class="latency-actions">
+              <span id="latency-status" class="status" role="status" aria-live="polite"></span>
+            </div>
+          </div>
+        </div>
+        <details class="manual">
+          <summary data-i18n="daily_settings">日常使用设置</summary>
+          <label><input id="launch-at-login" type="checkbox" /><span data-i18n="launch_at_login">登录 Windows 后在托盘启动</span></label>
+          <label><input id="auto-connect" type="checkbox" /><span data-i18n="auto_connect">联网后自动投送到上次的设备</span></label>
+          <p class="hint" data-i18n="auto_connect_hint">启用后，后台定期搜索上次的设备，并恢复上次的模式和音量。会发送系统中正在播放的所有声音。手动停止后，本次运行不再自动连接，重新勾选可恢复。</p>
+          <span id="daily-status" class="status" role="status" aria-live="polite"></span>
+        </details>
+        <details class="manual">
+          <summary data-i18n="diagnostics_summary">Diagnóstico de audio</summary>
+          <p class="hint" data-i18n="diagnostics_hint">Descarga las métricas de las últimas sesiones para comparar retardo y cortes. No incluye nombres, direcciones IP ni credenciales. Las medidas locales no representan el retardo audible del HomePod.</p>
+          <button id="diagnostics-export" type="button" data-i18n="diagnostics_export">Descargar diagnóstico</button>
+          <button id="diagnostics-folder" type="button" hidden data-i18n="diagnostics_folder">打开保存文件夹</button>
+          <span id="diagnostics-status" class="status" role="status" aria-live="polite"></span>
+        </details>
+        <details class="manual">
+          <summary data-i18n="manual_summary">¿No aparece tu HomePod? Añade su IP manualmente</summary>
+          <p class="hint" data-i18n="manual_hint">
+            Algunos routers (Movistar HGU, redes con VLANs) no propagan mDNS entre
+            wifi 2.4 y 5 GHz. Mira la IP del HomePod en la app Casa del iPhone.
+          </p>
+          <div class="row">
+            <input
+              id="manual-ip"
+              placeholder="192.168.1.50[:7000]"
+              data-i18n-attr="placeholder:manual_endpoint_placeholder"
+            />
+            <input
+              id="manual-name"
+              placeholder="Nombre (opcional)"
+              data-i18n-attr="placeholder:manual_name_placeholder"
+            />
+            <button id="manual-add" data-i18n="manual_add">Añadir</button>
+          </div>
+          <span id="manual-status" class="status"></span>
+        </details>
+        <details class="manual">
+          <summary data-i18n="about_privacy">关于、隐私与开源</summary>
+          <p id="build-info" class="hint"></p>
+          <div class="legal-actions">
+            <button type="button" data-legal="about" data-i18n="about_app">关于软件</button>
+            <button type="button" data-legal="privacy" data-i18n="privacy_policy">隐私说明</button>
+            <button type="button" data-legal="licenses" data-i18n="open_source">开源许可证</button>
+            <button type="button" data-legal="third_party" data-i18n="third_party">第三方声明</button>
+            <button type="button" data-legal="support" data-i18n="support">支持与反馈</button>
+          </div>
+          <p class="hint" data-i18n="privacy_clear_hint">清除已保存设备并关闭自动投送，保留音量、模式、语言；不会删除旧日志。</p>
+          <button id="clear-device-data" type="button" data-i18n="clear_device_data">清除已保存设备信息</button>
+          <span id="privacy-status" class="status" role="status"></span>
+        </details>
+      </section>
+    </main>
+    <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+      <h2 id="confirm-title"></h2>
+      <p id="confirm-message"></p>
+      <div class="dialog-actions">
+        <button id="confirm-cancel" type="button" class="secondary" data-i18n="cancel">Cancelar</button>
+        <button id="confirm-accept" type="button"></button>
+      </div>
+    </dialog>
+    <dialog id="legal-dialog" class="legal-dialog">
+      <h2 id="legal-title"></h2>
+      <pre id="legal-content"></pre>
+      <button id="legal-close" type="button" data-i18n="close">关闭</button>
+    </dialog>
+    <div id="toast" class="toast" hidden></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

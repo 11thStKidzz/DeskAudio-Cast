@@ -1,0 +1,357 @@
+{
+  "repository": "https://github.com/lmcgartland/airplay2-rs",
+  "revision": "f824007798f71605307384829800273a4dbbcee2",
+  "license": "GPL-3.0-or-later",
+  "original_files": [
+    {
+      "path": "Cargo.lock",
+      "sha256": "c0c38719db55529a3e7eb1c9d961022437bed8dc2d646c2dcb073e2831e20f9e"
+    },
+    {
+      "path": "Cargo.toml",
+      "sha256": "24b22d6a26950a705210abf00bf81481a9f43d2b89005cd27f09049cedac0868"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+    },
+    {
+      "path": "README.md",
+      "sha256": "be75097cc791505b167a520c4f7c015b2ee49ac2c46d0a249e411d848b7623d3"
+    },
+    {
+      "path": "crates/airplay-audio/Cargo.toml",
+      "sha256": "987d96f5095df8bf5ce66450e38f1bcb320dc0dd648ad653ed13896b078209af"
+    },
+    {
+      "path": "crates/airplay-audio/src/buffer.rs",
+      "sha256": "f4f08fb74ed11c7d7a4427c7bb01d828a586b0cc1c663de74c5faf533477b8f4"
+    },
+    {
+      "path": "crates/airplay-audio/src/cipher.rs",
+      "sha256": "0e21a646228580e2a77a4f5759873fe3c82824c89efe3102c46b7d6f26447688"
+    },
+    {
+      "path": "crates/airplay-audio/src/decoder.rs",
+      "sha256": "556d223e22692485f8af6e4f6ac5282342362c67d801465829f6acaf1752fec9"
+    },
+    {
+      "path": "crates/airplay-audio/src/encoder.rs",
+      "sha256": "84554133d77ee60f8a3f4d94267f6db8d7b6039cab87b62046f93b07bb71d143"
+    },
+    {
+      "path": "crates/airplay-audio/src/eq.rs",
+      "sha256": "dc0af2cb5ffb5bc1834c6e851e34de0e17235ea00041c9c61001d02faa7e7a67"
+    },
+    {
+      "path": "crates/airplay-audio/src/lib.rs",
+      "sha256": "267170c5ae7b4dfb83339e27ddbabca4a9e13b4ee272cd5b647a0134ab24fcd2"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_decoder.rs",
+      "sha256": "0ddacfebf4e6534de99a1522b527ea88861e1a1dbd878a2688edc4b5f90c0029"
+    },
+    {
+      "path": "crates/airplay-audio/src/rtp.rs",
+      "sha256": "1fee74256cc8b0d6a0257a4ca993fa4511e29fbef95ce43f489a598a3d33168c"
+    },
+    {
+      "path": "crates/airplay-audio/src/streamer.rs",
+      "sha256": "925098aacb63e5bd613a3d2019bc0e051852216531788262f16cf3114a1dc086"
+    },
+    {
+      "path": "crates/airplay-audio/src/traits.rs",
+      "sha256": "ff9d299b7f2c53fa65137f8014378071359cd1136150f403f1f7a2e95ef4d2b0"
+    },
+    {
+      "path": "crates/airplay-audio/src/spatial/mod.rs",
+      "sha256": "718e0a173778d968fd9f30b5cc0f957c5f995f84026c8344846edb7e39894283"
+    },
+    {
+      "path": "crates/airplay-audio/src/spatial/stft_upmix.rs",
+      "sha256": "0da1e00e10c0dee5f3de765a441784a80b1dd9609dd121f7a2de41c7d198ea51"
+    },
+    {
+      "path": "crates/airplay-audio/tests/live_capture_pipeline.rs",
+      "sha256": "73d78c17a6d5df55556aae88791ad37902bc3e639994a51511c893e076747cc2"
+    },
+    {
+      "path": "crates/airplay-client/.DS_Store",
+      "sha256": "e188dcd4228c96203fb5409b7720b1c5f30862dbde1f6b5f1b51811289b4a27b"
+    },
+    {
+      "path": "crates/airplay-client/Cargo.toml",
+      "sha256": "239fa33283425227aaa416c42805e2b298af0091769bb346ad484e8373b19031"
+    },
+    {
+      "path": "crates/airplay-client/examples/debug_setup.rs",
+      "sha256": "94358b0092fc56aba0aa1193629201560c1aa1356bd91ff1ff32f9ab12fd88eb"
+    },
+    {
+      "path": "crates/airplay-client/examples/play_audio.rs",
+      "sha256": "a9a2033ee897fbdb27b1b8b91f01f80f838c66686956a97055013bdfbe877be3"
+    },
+    {
+      "path": "crates/airplay-client/examples/test_gptp.rs",
+      "sha256": "ffbdc630f318244ee16af64179d4db63b0813bbc16ed1892c04f58902d2ae32d"
+    },
+    {
+      "path": "crates/airplay-client/examples/test_group.rs",
+      "sha256": "728935bff23991eeeb4dd8872f0f55f865f14b7660bb56bef48bdc4feeec05b7"
+    },
+    {
+      "path": "crates/airplay-client/src/builder.rs",
+      "sha256": "2cea3d89c0cb1e50e0af64050035a21e2d21f8b02993f1c094c18f0b996df018"
+    },
+    {
+      "path": "crates/airplay-client/src/client.rs",
+      "sha256": "2b64bec649b912ffbec4e145e8d1be8aa934753ef0d879af792851683a260453"
+    },
+    {
+      "path": "crates/airplay-client/src/connection.rs",
+      "sha256": "d1362f8be220add680ac4f0a041934f8748fe33e6acb5776ec5cd9a2f9ebdb0f"
+    },
+    {
+      "path": "crates/airplay-client/src/events.rs",
+      "sha256": "d9b0d5df41fb39cf88b0aa380d3d14e8e3c1ceb5e2f54709253f0a1ca13fe3c2"
+    },
+    {
+      "path": "crates/airplay-client/src/group.rs",
+      "sha256": "b0b7e7bf29f5f7c6596eba91bb3d39ff95775d4df9799183b1a49ecd9b00863b"
+    },
+    {
+      "path": "crates/airplay-client/src/lib.rs",
+      "sha256": "ff632bba90d67f9ff7139c95af6fd27f61354e40f0573ab4ad2d65c42182630a"
+    },
+    {
+      "path": "crates/airplay-client/src/playback.rs",
+      "sha256": "c4c28cc7ad7f69fe6dfe2cee1ac8a91bc7500b717049a43b8cf585fefa052eaa"
+    },
+    {
+      "path": "crates/airplay-client/src/raop_connection.rs",
+      "sha256": "2150cc36ba55ba7ac0f290cd86588de9c733fdb95b666a43182b0d68cb928df6"
+    },
+    {
+      "path": "crates/airplay-client/src/stats.rs",
+      "sha256": "bb7a5ad1550a19d3b4b684563697dec30d9f922747d5da73788466f55ed40fdb"
+    },
+    {
+      "path": "crates/airplay-core/Cargo.toml",
+      "sha256": "470801a32a6fccd62efed29f5501a2f70f4130ab84e3250db6f53d160d51129a"
+    },
+    {
+      "path": "crates/airplay-core/src/codec.rs",
+      "sha256": "78987f052ab031eec7e33284a7a83210e583c887b24fe8b17a9e545db9adcd47"
+    },
+    {
+      "path": "crates/airplay-core/src/device.rs",
+      "sha256": "0ca757654c5761eb179fb002d37631bb039929592813ca317f7cf0bced5966dc"
+    },
+    {
+      "path": "crates/airplay-core/src/error.rs",
+      "sha256": "f18229e35838446f782bcd9ca6fd43e39aa2f344d00f2cdddf364a097e70ce75"
+    },
+    {
+      "path": "crates/airplay-core/src/features.rs",
+      "sha256": "9c4140251aa751dabf9a1a42e9d847a7af0803ba5c75335ae4e2a195bdff319b"
+    },
+    {
+      "path": "crates/airplay-core/src/lib.rs",
+      "sha256": "90bb6c6521da0afafb6107e1770a0231caa0697de28ffd86a01f1fc56150e4ab"
+    },
+    {
+      "path": "crates/airplay-core/src/stream.rs",
+      "sha256": "593c857d7876a0dd8e28a92cb577f8ce267603c2af7099262af680a5acbc5458"
+    },
+    {
+      "path": "crates/airplay-crypto/Cargo.toml",
+      "sha256": "87d84833cd190905b06197f98c6717009a07e4a110961e953172ccd6e5a77575"
+    },
+    {
+      "path": "crates/airplay-crypto/benches/crypto_benches.rs",
+      "sha256": "6b80c1f2edcc283bb5085138e4580af5d4a4474d6b91184769c32102e3ceee98"
+    },
+    {
+      "path": "crates/airplay-crypto/src/aes.rs",
+      "sha256": "85fadbcf390135a3aeadd6498b81f59db155f463732fec56f7b2a5232982a9ab"
+    },
+    {
+      "path": "crates/airplay-crypto/src/chacha.rs",
+      "sha256": "2ef765415b5446cb09c061ace746ea1a63c930591d25cfd69f844a384e0c10ef"
+    },
+    {
+      "path": "crates/airplay-crypto/src/curve25519.rs",
+      "sha256": "5236f0607ffd39470e824e053d5f5da249874b04bf3dca9818a7434af1acc431"
+    },
+    {
+      "path": "crates/airplay-crypto/src/digest.rs",
+      "sha256": "e4dd2d1c0fbc11628a1064a4b9f3bc4d7d0586cab6a0eae27020515b4a85b6c2"
+    },
+    {
+      "path": "crates/airplay-crypto/src/ed25519.rs",
+      "sha256": "2c01983e233f9105bffc03ae8441b9c522966224b9c146665846400dbd9a802b"
+    },
+    {
+      "path": "crates/airplay-crypto/src/hkdf.rs",
+      "sha256": "36f67198cc5f65b0401936f6ad15825066e0125f751ba2321f78621604e03f89"
+    },
+    {
+      "path": "crates/airplay-crypto/src/keys.rs",
+      "sha256": "583e774403490e0536ee2cf27fc169c793ed96859241e3cafdab6df98001f95a"
+    },
+    {
+      "path": "crates/airplay-crypto/src/lib.rs",
+      "sha256": "b690fcb1d7fbd19b1dda156b0ae2d252b857cde54dbf46262b6360cf2df8cffa"
+    },
+    {
+      "path": "crates/airplay-crypto/src/rsa.rs",
+      "sha256": "cc61111a53bdcee4328dd83323f6d5a0f39313b534891ee7fa3a8c17388d63b4"
+    },
+    {
+      "path": "crates/airplay-crypto/src/srp.rs",
+      "sha256": "5559cf895f2beb9f6dd6e4a0a2b6a3e31edb7a294553837131d0a7a6cd8680fe"
+    },
+    {
+      "path": "crates/airplay-crypto/src/tlv.rs",
+      "sha256": "f8e7e5e62210be03f3675bac26912891a62b6e0a4067368814370d06cfb8513c"
+    },
+    {
+      "path": "crates/airplay-discovery/Cargo.toml",
+      "sha256": "5ec7bda80a4d40cd465260b8455bb1087fc1e7fcbe5d7d897fe8d7abf1a1a59b"
+    },
+    {
+      "path": "crates/airplay-discovery/examples/debug_devices.rs",
+      "sha256": "cf887755cabac4344eaf287440fe7c84dfa421c2e731b1d2fcd8c7fc45440486"
+    },
+    {
+      "path": "crates/airplay-discovery/src/browser.rs",
+      "sha256": "388ca662adf78c3568fc96f38d8358df7075a169ec29e6ab08e165a76dff26f2"
+    },
+    {
+      "path": "crates/airplay-discovery/src/lib.rs",
+      "sha256": "30370a1430dd07e4cdcb6289718debec50934e7a9cbb1d471ff075d2ff37b3ab"
+    },
+    {
+      "path": "crates/airplay-discovery/src/parser.rs",
+      "sha256": "5213f1232c6f5af415a802ae9363c6fb7f88335729665c48dbd54d955fa9864c"
+    },
+    {
+      "path": "crates/airplay-discovery/src/traits.rs",
+      "sha256": "d0e1527cfb81b1f3af3cbc80d0a272fdcb2d0fe3617b5b43d051489db26f8a49"
+    },
+    {
+      "path": "crates/airplay-pairing/Cargo.toml",
+      "sha256": "d6dc2f18aa188e3da9565aac047e9d4aa91d6f780c7cf42283fb98cc9b452618"
+    },
+    {
+      "path": "crates/airplay-pairing/examples/pair_with_device.rs",
+      "sha256": "e00694292129bc97fc3e427f377c31b74d8651bcb374753de170c4b4f24de59e"
+    },
+    {
+      "path": "crates/airplay-pairing/src/channel.rs",
+      "sha256": "dbd5f257b61f69e6a0249ecdf648841e1efa94e6ad7afe12d1601f53a0f0bb16"
+    },
+    {
+      "path": "crates/airplay-pairing/src/controller.rs",
+      "sha256": "eeb06871d7228fe7bc0c0359a315c15d3eddd991b341721fac88c53cc30f54ad"
+    },
+    {
+      "path": "crates/airplay-pairing/src/fairplay.rs",
+      "sha256": "6143ede343f87c86f25f427b36c9958bcefa7a38049382f32ab32210f1a308d7"
+    },
+    {
+      "path": "crates/airplay-pairing/src/lib.rs",
+      "sha256": "599730db29626c3ce5be064f402b98317712d1cf1b4e90afff0e8d7356281cef"
+    },
+    {
+      "path": "crates/airplay-pairing/src/pair_setup.rs",
+      "sha256": "5d6a3193b5aa5bc1002e871d6237f29070d45b1d57eaf1ed7904dd7401efb02d"
+    },
+    {
+      "path": "crates/airplay-pairing/src/pair_verify.rs",
+      "sha256": "fa17773340d5f08a0e9d3086aefb1b629f5e6116e7ed091fc393a853a78dff30"
+    },
+    {
+      "path": "crates/airplay-pairing/src/session.rs",
+      "sha256": "f49b045f46f92a970bf56732086a03a449bb6b39dc9e404f5a23e2cf4fa81fef"
+    },
+    {
+      "path": "crates/airplay-pairing/src/traits.rs",
+      "sha256": "76953f3eef231e93e4dd87f15e917df25b5ee88416b3a51aadf17d54b49024fa"
+    },
+    {
+      "path": "crates/airplay-resampler/Cargo.toml",
+      "sha256": "cdfd4054b396f50a70f1c753384ed7ef6f5e6e548bda8820f6f10ce0781d387e"
+    },
+    {
+      "path": "crates/airplay-resampler/src/lib.rs",
+      "sha256": "821111d77c5c5282f9b9c4a0de244b2347a948ba7ee6cfc2b8048c9764108c0c"
+    },
+    {
+      "path": "crates/airplay-rtsp/Cargo.toml",
+      "sha256": "b5f64127e9a3d39985104f45fb536fa18defecd70c76aceffee1e67c24c2e3cb"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/connection.rs",
+      "sha256": "2a2a8332d9759848e033c766b22d5bbb144d82875849deded3826f0f8a88a38d"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/lib.rs",
+      "sha256": "5c1ee1d72cb55853805b2e97904115d6d5d60fe1661f14ca2d081049f6dcf3f1"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/plist_codec.rs",
+      "sha256": "1a0a2db0277587bebe1d23ffafaf86d308eda583d19941ce9b759fcd8889215f"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/raop_session.rs",
+      "sha256": "7766e0a0c5935804982d66f071fd4e0ab5eade00113a951a04ec8bc02921b5bd"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/request.rs",
+      "sha256": "ccc79512a6557dcfff313f5c7c4e42b1ed0f63fdb529f21a520180d2bd2f888c"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/response.rs",
+      "sha256": "cb0f4332853442222cc8bae1bc0e2f1873c3524ed54604034a89493f4c448d08"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/sdp.rs",
+      "sha256": "8f545a8c6ebbfff9e65f521dd79321966ded44ca802e7dd480d22790fdeaccfd"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/session.rs",
+      "sha256": "b6bc85f68b41c41aa579c383202b03e6d9e7099ea123f493f1cd654d740bf202"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/traits.rs",
+      "sha256": "0f87f7550e0f2ba027681d7452bc1e2a408709c0dabd711659576089b48b7f58"
+    },
+    {
+      "path": "crates/airplay-timing/Cargo.toml",
+      "sha256": "40cc9d7167dec73338da93f589fec8870b672a95bf9c97b13b6e70df19445471"
+    },
+    {
+      "path": "crates/airplay-timing/src/clock.rs",
+      "sha256": "0c66d278c83a028b0bbcd398c879725553a22bc8afd60e65b3a28d8ccdb80a1f"
+    },
+    {
+      "path": "crates/airplay-timing/src/lib.rs",
+      "sha256": "e22e5bceb1cf03001956bfacbcac50608235cb784025e88c3b5224276e4be948"
+    },
+    {
+      "path": "crates/airplay-timing/src/ntp.rs",
+      "sha256": "71ad40649952a73c14f6fffb52b6da991d7a6bfba848cf8df046d60732fa5278"
+    },
+    {
+      "path": "crates/airplay-timing/src/ptp.rs",
+      "sha256": "c366c6804f2fe54775bd870c107903335755bde003168f5bdea64ca3117c0bbf"
+    },
+    {
+      "path": "crates/airplay-timing/src/traits.rs",
+      "sha256": "07d3172136d0e875066844734c460d2048965dbcb97eec7aa037ae5c7ff5c14e"
+    }
+  ],
+  "old_fork_copied": false,
+  "public_distribution_authorized": false
+}

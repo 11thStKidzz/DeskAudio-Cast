@@ -1,0 +1,170 @@
+{
+  "upstream": "https://github.com/lmcgartland/airplay2-rs",
+  "revision": "f824007798f71605307384829800273a4dbbcee2",
+  "grant": "GPL-3.0-or-later",
+  "date": "2026-10-22",
+  "old_fork_copied": false,
+  "records": [
+    {
+      "path": "Cargo.toml",
+      "original_sha256": "24b22d6a26950a705210abf00bf81481a9f43d2b89005cd27f09049cedac0868",
+      "snapshot_sha256": "67044280b4cd04775775050533eee12b6ffd747ada4854905e0fe280ad944691",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/Cargo.toml",
+      "original_sha256": "987d96f5095df8bf5ce66450e38f1bcb320dc0dd648ad653ed13896b078209af",
+      "snapshot_sha256": "508378ce4ded42969811c19ac325b7debb5b9588201c68ae0b7211204f46e4b2",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/src/encoder.rs",
+      "original_sha256": "84554133d77ee60f8a3f4d94267f6db8d7b6039cab87b62046f93b07bb71d143",
+      "snapshot_sha256": "4daf1f6387a84a22e6e939431fcc3113db6d3cdcac8907e53f48a653c9108079",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/src/lib.rs",
+      "original_sha256": "267170c5ae7b4dfb83339e27ddbabca4a9e13b4ee272cd5b647a0134ab24fcd2",
+      "snapshot_sha256": "3c3f72920d0365f9960626151b837173c07f2f5bb3955d838f88b7a31f06e5fa",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_decoder.rs",
+      "original_sha256": "0ddacfebf4e6534de99a1522b527ea88861e1a1dbd878a2688edc4b5f90c0029",
+      "snapshot_sha256": "79fc0248d072ff9430b07cd59404f29a8c5ff9b51d516a4c0f45cfff20f2abae",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_engine.rs",
+      "original_sha256": null,
+      "snapshot_sha256": "2abb388bb28168eee7abb023b79404d6429ee55b63f506391191ad01965508b4",
+      "status": "added"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_options.rs",
+      "original_sha256": null,
+      "snapshot_sha256": "d613d9ef9ddaf71a66038831822e893d6018e5cea67a49282f042fd5a7009399",
+      "status": "added"
+    },
+    {
+      "path": "crates/airplay-audio/src/rtp.rs",
+      "original_sha256": "1fee74256cc8b0d6a0257a4ca993fa4511e29fbef95ce43f489a598a3d33168c",
+      "snapshot_sha256": "198b972fdabd48899faacaafe50ad82c1b3cf0f2417c308aeefdb814acf75c99",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-audio/src/streamer.rs",
+      "original_sha256": "925098aacb63e5bd613a3d2019bc0e051852216531788262f16cf3114a1dc086",
+      "snapshot_sha256": "a84d50da06b87853282168fbc3e1384089ea9c0bf2214643b49dee9825905d0e",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-client/src/client.rs",
+      "original_sha256": "2b64bec649b912ffbec4e145e8d1be8aa934753ef0d879af792851683a260453",
+      "snapshot_sha256": "efe86ee80091923bae85f3e2def528d1c98e37ab0dafd214b0f02041ea790dec",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-client/src/connection.rs",
+      "original_sha256": "d1362f8be220add680ac4f0a041934f8748fe33e6acb5776ec5cd9a2f9ebdb0f",
+      "snapshot_sha256": "409fb8c51dc5286aba3907819428783f2b5f1019f72cb702cd809c4da4c4f37d",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-client/src/raop_connection.rs",
+      "original_sha256": "2150cc36ba55ba7ac0f290cd86588de9c733fdb95b666a43182b0d68cb928df6",
+      "snapshot_sha256": "5bf119475d6f2b58095cfd40ca64ee599b4a5aee24a38203bd91f7f8b3e853bf",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-crypto/src/srp.rs",
+      "original_sha256": "5559cf895f2beb9f6dd6e4a0a2b6a3e31edb7a294553837131d0a7a6cd8680fe",
+      "snapshot_sha256": "0574d6ddaeb064002ac2e4cf69889da2b4b6b8790361e01b98b5f12651b86644",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-discovery/src/browser.rs",
+      "original_sha256": "388ca662adf78c3568fc96f38d8358df7075a169ec29e6ab08e165a76dff26f2",
+      "snapshot_sha256": "f043d87041cb5744592888b468a31d7fc0f7bbf5bb3d9def99de656fa18f4cf9",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-discovery/src/lib.rs",
+      "original_sha256": "30370a1430dd07e4cdcb6289718debec50934e7a9cbb1d471ff075d2ff37b3ab",
+      "snapshot_sha256": "dae8d0fccbd389bd2ede363a19ec24cb7cb8a152f26db7d9b489cfae41549fa1",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-discovery/src/parser.rs",
+      "original_sha256": "5213f1232c6f5af415a802ae9363c6fb7f88335729665c48dbd54d955fa9864c",
+      "snapshot_sha256": "e401dbdaf91a069ab112e533a65d7d8e8c215bcc3daa9e0f544b4951679af924",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-pairing/src/channel.rs",
+      "original_sha256": "dbd5f257b61f69e6a0249ecdf648841e1efa94e6ad7afe12d1601f53a0f0bb16",
+      "snapshot_sha256": "84b04a1d9530a879c7e2d3c7ccfba889f637be2f12a26344a08e94f23c0c6ccd",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-pairing/src/controller.rs",
+      "original_sha256": "eeb06871d7228fe7bc0c0359a315c15d3eddd991b341721fac88c53cc30f54ad",
+      "snapshot_sha256": "a7f46707bb52f1fdf128f98fc283f928fa9e9372bae7662e8b2505ec606c96a3",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-pairing/src/pair_verify.rs",
+      "original_sha256": "fa17773340d5f08a0e9d3086aefb1b629f5e6116e7ed091fc393a853a78dff30",
+      "snapshot_sha256": "1f18675ad2a2d9849cf2fda2cfa1c2d0f79cd2b42fe10bd7eebe5b08e61f8f4c",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-resampler/src/lib.rs",
+      "original_sha256": "821111d77c5c5282f9b9c4a0de244b2347a948ba7ee6cfc2b8048c9764108c0c",
+      "snapshot_sha256": "1ad534d69d82adcd4bf252ddbbbff40c909f33d713191d55980fe4c8d9649d6a",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/connection.rs",
+      "original_sha256": "2a2a8332d9759848e033c766b22d5bbb144d82875849deded3826f0f8a88a38d",
+      "snapshot_sha256": "db7250f481e765a3e8a32b4d28165bcc5f842045f6bac7a6495d90fb5d70d98c",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/sdp.rs",
+      "original_sha256": "8f545a8c6ebbfff9e65f521dd79321966ded44ca802e7dd480d22790fdeaccfd",
+      "snapshot_sha256": "1d17e808062a8f385d51965bf4ed1311cfeeab831e94adcab669f032560ba7ce",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/session.rs",
+      "original_sha256": "b6bc85f68b41c41aa579c383202b03e6d9e7099ea123f493f1cd654d740bf202",
+      "snapshot_sha256": "b5dcbd0ab7b727c57104e09a0145f5f95e121a8d76bbf670cd336b477317b4c0",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-timing/src/ntp.rs",
+      "original_sha256": "71ad40649952a73c14f6fffb52b6da991d7a6bfba848cf8df046d60732fa5278",
+      "snapshot_sha256": "eb7d0babf93d7c447264f0fbfc7f24e078a28aacf10c14703529e72dcfe4f6a5",
+      "status": "modified"
+    },
+    {
+      "path": "crates/airplay-timing/src/ptp.rs",
+      "original_sha256": "c366c6804f2fe54775bd870c107903335755bde003168f5bdea64ca3117c0bbf",
+      "snapshot_sha256": "3e7190b90b89895d4d23e284326ced08853f3f6abaaa67e65d3a066d102bcd94",
+      "status": "modified"
+    },
+    {
+      "path": "MODIFICATIONS.md",
+      "original_sha256": null,
+      "snapshot_sha256": "095bb1c870c320220b962505cd852bc975abbad5e2521637f368105d2b472084",
+      "status": "added"
+    }
+  ],
+  "notes": [
+    "Full corresponding modified files are supplied, not just patches",
+    "Raw file hashes include line endings; metadata/generated records and the unused upstream Cargo.lock are excluded",
+    "No change to the upstream copyright grant; not a legal clearance"
+  ]
+}

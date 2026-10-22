@@ -1,0 +1,14 @@
+target/
+node_modules/
+ui/dist/
+local-*/
+.env*
+*.pfx
+*.cer
+*.p12
+*.key
+*.log
+*.pdb
+*.dmp
+*.msix
+*-setup.exe
