@@ -1,5 +1,7 @@
 # 桌面声渡修改记录
 
+2026-10-22（应用0.1.12，MSIX1.0.12.0）：按发布者选择，从已云电脑验收的20261022-r3完整源码快照制作轻量链接修正版，不采用0.1.11内置Fixed WebView2/VC安装器方案。仅更新本项目GitHub用户名、必要的版本与同版本对应源码地址，并增加链接回归检查。隐私处理规则、GPL授权、第三方版权、100个音频/协议Rust文件及三档参数不变。保留既有公开版本和Git历史，不上传安装包或操作Partner Center。
+
 2026-10-22（应用 0.1.10，MSIX 1.0.10.0）：沿用用户实测 0.1.9 音频/缓冲实现；配置实际发布者公开名称、支持邮箱和 Partner Center 三个精确身份字段。MSIX 使用中英文 PRI 显示名资源、英文默认回退，包标识不作为应用显示名。补充隐私/支持/许可说明与商店提交草案，打包不上传、不签名、不改变系统信任或正在运行的版本。源码和全部第三方署名保留；不宣称商店协议、专利或真实 MSIX 安装已验收。
 
 基于 AirSend，原始应用提交 e93535bcfeedcc3a12e3d11a15e25564208f0d78。
@@ -37,8 +39,4 @@ Rust 1.99.1 (58cf8f9c3) 的部分标准库代码实际静态进入程序；不�
 MSIX 声明 Microsoft.VCLibs.140.00.UWPDesktop 框架依赖；在创建界面前只读检查官方 WebView2 注册，缺失时显示中英安装指引，不自动下载或安装。
 不改变音频采集、ALAC 编码、协议发送、三档缓冲、自动回退或声音质量参数。
 构建资料适配 Windows PowerShell 5 的原生 stderr 行为：保留测试/编译日志并依据真实退出码判定，未删除测试或忽略失败。源码指纹遍历提前剪除 target/node_modules 等既有排除目录，避免耗时遍历缓存，源码选择规则不变。
-
-# 2026-10-22 — 0.1.11 deployment candidate
-
-Preserved audio capture, ALAC transport and three buffer modes. Corrected this project's GitHub owner links to 11thStKidzz without changing upstream authorship. Added complete app-local Microsoft Fixed WebView2 layout and checks for both custom MSIX and NSIS, native startup diagnostics, pinned official material integrity records and separate Microsoft terms. NSIS includes an official offline VC++ installer with explicit consent, interactive Microsoft licensing, real exit-code handling and post-install DLL-version checks; Windows10 renderer RX ACLs apply only to the app's Runtime subtree. Large runtimes are not part of source Git/ZIP. Publisher deferred final Microsoft redistribution legal confirmation; local candidates are not a Store approval or legal-clearance claim.
 

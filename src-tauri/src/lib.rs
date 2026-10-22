@@ -2111,7 +2111,7 @@ pub fn run() {
         });
     }
 
-    let app_result = tauri::Builder::default()
+    tauri::Builder::default()
         .plugin(tauri_plugin_store::Builder::default().build())
         .manage(DiscoveryState::default())
         .manage(ConnectionState::default())
@@ -2221,10 +2221,8 @@ pub fn run() {
 
             Ok(())
         })
-        .run(tauri::generate_context!());
-    if app_result.is_err() {
-        runtime_prerequisites::show_startup_failure("webview_initialization_failed");
-    }
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
 
     // `_log_guard` se dropea aquí al salir, drenando los últimos logs.
     drop(_log_guard);

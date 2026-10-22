@@ -1,5 +1,5 @@
 DeskAudio Cast Privacy Policy
-Application version: 0.1.11. Updated: 22 October 2026.
+Application version: 0.1.12. Updated: 22 October 2026.
 Publisher: 11thStKidzz
 Privacy and support contact: woyaotingspotify@gmail.com
 
@@ -21,10 +21,6 @@ Startup and automatic sending are optional and off by default. With automatic se
 Current logs allow numeric performance metrics only, not audio samples, encoded bytes, device names, IP addresses, pairing keys or arbitrary raw errors. The logical log directory is %APPDATA%/ConexionAirPlay/logs; its legacy name is retained for compatibility.
 At startup and every six hours, the application makes a best-effort attempt to prune its own daily old logs, targeting 14 days and at most 14 files. Recently touched files from the past 24 hours and locked files are skipped, so the target can temporarily be exceeded. Directory links are not followed and unrelated files are not deleted. Logs from earlier versions may contain sensitive content.
 Diagnostic JSON files you explicitly export use the logical path %LOCALAPPDATA%/com.personal.desktopaudiotransmitter/diagnostics. They contain the app version, build fingerprint, session status, counters and timings, including up to the latest 64 numeric underrun events per output and fallback-decision information. They do not attach raw logs or contain audio, device names, addresses or keys. Events stay in memory before export. Exported files remain until you delete them and are not removed by log pruning. Exporting does not upload anything; review a file before sharing it.
-
-If the UI Runtime cannot start, the app overwrites one deployment-error.txt in the diagnostics directory above with only a fixed error code, app version and expected Runtime version. It remains until replaced or deleted by you and is not uploaded. The Microsoft VC++ installer used by NSIS may create its own installation logs in the temporary directory under Microsoft's terms; these are not automatically attached to this app's exported diagnostics.
-
-The bundled Microsoft WebView2 includes Microsoft Defender SmartScreen and collects and sends end-user information to Microsoft as disclosed at https://aka.ms/privacy and https://learn.microsoft.com/en-us/microsoft-edge/privacy-whitepaper#smartscreen . This security protection has not been disabled. This is distinct from the application having no cloud-audio-upload service of its own. Fixed Runtime security patches are delivered through subsequent app updates.
 
 6. Information received by the publisher and third parties
 The application has no application account, advertising or automatic business-telemetry service, and does not automatically email support. Audio and necessary control data go to your selected receiver. Windows, WebView2 and Microsoft Store may connect and process information under their own terms. This application-level description does not mean that your whole computer never connects to the Internet.

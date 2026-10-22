@@ -496,7 +496,7 @@
     },
     {
       "name": "audio-capture",
-      "version": "0.1.11",
+      "version": "0.1.12",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -514,7 +514,7 @@
     },
     {
       "name": "audio-encode",
-      "version": "0.1.11",
+      "version": "0.1.12",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -948,7 +948,7 @@
     },
     {
       "name": "cap-core",
-      "version": "0.1.11",
+      "version": "0.1.12",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -1241,7 +1241,7 @@
     },
     {
       "name": "conexion-airplay",
-      "version": "0.1.11",
+      "version": "0.1.12",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -9850,7 +9850,7 @@
       "evidence": "Original Microsoft NuGet LICENSE.txt; packaged loader hash equals the Rust dependency's x64 loader",
       "license": "BSD-3-Clause",
       "obligation": "Preserve Microsoft copyright, conditions and disclaimer; no endorsement",
-      "runtime_distinction": "Loader BSD license is NOT the license for the separately bundled Fixed Runtime; see its own component entry",
+      "runtime_distinction": "WebView2 Runtime is separate and is not bundled or installed automatically",
       "status": "original_loader_terms_and_identity_verified_not_patent_clearance"
     },
     {
@@ -9867,29 +9867,14 @@
     },
     {
       "name": "Visual C++ and Windows system runtimes",
-      "distribution": "MSIX references Microsoft's VCLibs Desktop framework; NSIS embeds the official VC++ x64 installer, runs only after explicit interactive consent, then rechecks system VCRUNTIME140/VCRUNTIME140_1 versions. UCRT belongs to Windows",
+      "distribution": "NOT bundled. MSIX references Microsoft's VCLibs Desktop framework; NSIS requires system VCRUNTIME140/VCRUNTIME140_1 and UCRT",
       "msix_framework": "Microsoft.VCLibs.140.00.UWPDesktop",
       "msix_framework_min_version": "14.0.33728.0",
       "framework_deployment": "Microsoft Store deploys/updates the separately licensed framework; the application does not copy its DLLs or installer",
       "framework_reference_source": "https://learn.microsoft.com/en-us/troubleshoot/developer/visualstudio/cpp/libraries/c-runtime-packages-desktop-bridge",
       "source": "https://learn.microsoft.com/cpp/windows/redistributing-visual-cpp-files",
-      "vc_redist_version": "14.51.36247.0",
-      "vc_redist_sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
-      "status": "official_microsoft_signed_installer_reviewed_not_executed_on_host",
-      "remaining": "Microsoft limits redistribution to licensed Visual Studio users; actual Build Tools entitlement and distribution obligations remain publisher confirmation, no terms accepted on their behalf"
-    },
-    {
-      "name": "Microsoft WebView2 Fixed Version Runtime",
-      "version": "155.0.4283.62",
-      "license": "Microsoft proprietary Fixed Runtime terms; separate from application GPL and SDK Loader BSD",
-      "source": "Direct official Microsoft download; private download record retained, no runtime binaries in Git/source archive",
-      "cab_sha256": "cf54aa717a0ebd05b40e87620724583cb6eb0a5b8b64764cc11e42822f68bf6c",
-      "original_terms_source": "https://developer.microsoft.com/microsoft-edge/api/eula/webview2?locale=en-us&fixed=true",
-      "license_file": "WebView2-Fixed-Runtime-EULA.html",
-      "license_sha256": "aa477079e5a22914f94a329ceae83e41ce34f0ad40d2c0cdd7c5890ec8ca1a8e",
-      "distribution": "Complete unmodified 256-file app-local runtime in both candidate packages; file hashes locked, core Microsoft signatures valid; embedded Chromium and other original credits retained",
-      "status": "local_technical_candidate_only_publisher_explicitly_deferred_final_distribution_legal_confirmation",
-      "remaining": "Section 2(b) distributor/end-user terms and indemnity, 2(c) restrictions including download shortcuts, section 8 notices, aggregate-versus-GPL scope and target-market obligations require publisher confirmation; copying the license is not proof all conditions are satisfied"
+      "status": "no_redistributable_copied_no_runtime_installer_executed",
+      "remaining": "If a runtime installer is bundled later, review that exact version's redistribution terms and obtain user consent"
     },
     {
       "name": "Rust standard library",

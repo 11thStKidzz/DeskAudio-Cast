@@ -34,8 +34,7 @@ class ReleaseFreezeTests(unittest.TestCase):
         self.assertEqual(dependency.attrib['MinVersion'],'14.0.33728.0')
         self.assertEqual(dependency.attrib['Publisher'],'CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US')
         code = (ROOT/'src-tauri/src/runtime_prerequisites.rs').read_text(encoding='utf-8')
-        self.assertIn('fixed_runtime_ready',code)
-        self.assertNotIn('RegGetValueW',code)
+        self.assertIn('RegGetValueW',code)
         self.assertIn('MessageBoxW',code)
         for forbidden in ['Command::new','reqwest','URLDownloadToFile','RegSetValue']:
             self.assertNotIn(forbidden,code)

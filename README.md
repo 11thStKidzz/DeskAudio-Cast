@@ -1,28 +1,28 @@
 # 桌面声渡 / DeskAudio Cast
 
-Windows 系统音频投送工具，版本 0.1.11（MSIX 1.0.11.0），x64。
+Windows 系统音频投送工具，版本 0.1.12（MSIX 1.0.12.0），x64。
 使用 WASAPI 回环捕获所选输出的声音，以 ALAC 编码发送到可信网络中的单台兼容接收设备。无需虚拟声卡。
 支持设备发现、音量、三档模式、托盘控制、可选开机启动与自动投送、六种界面语言和本地诊断。
 延迟与兼容性受网络、设备和系统影响；不承诺零延迟或游戏级同步。不提供屏幕投射、多房间或立体声配对功能。
 
-A Windows system-audio sender, version 0.1.11 (MSIX 1.0.11.0), x64.
+A Windows system-audio sender, version 0.1.12 (MSIX 1.0.12.0), x64.
 WASAPI output loopback and ALAC transport to a single compatible receiver on a trusted network, without a virtual audio cable.
 Includes discovery, volume, three modes, tray controls, optional startup/automatic sending, six UI languages and local diagnostics.
 Latency and compatibility vary; zero latency and gaming-grade synchronization are not guaranteed. Screen casting, multi-room and stereo pairs are not offered.
 
 ## 安装 / Installation
 
-Windows 10 2004/build 19041 或更新的 Windows 10/11，x64，需要兼容 HomePod。完整安装包内置固定版 WebView2，无需单独安装 WebView2。
-MSIX 的 VCLibs Desktop 框架由商店部署；本地 NSIS 附微软 VC++ x64 离线安装器，仅在缺失且征得同意后打开微软界面，并重新检查结果。
-不要只复制 EXE；缺失内置运行时会显示修复及诊断说明。固定运行时需随应用更新安全补丁，见 [DEPLOYMENT.md](DEPLOYMENT.md)。
-Windows 10 build 19041 or later Windows 10/11, x64 and a compatible HomePod are required. Complete packages include Fixed Version WebView2; a separate WebView2 installation is not required.
-Store deploys the MSIX VCLibs Desktop framework. NSIS includes the official VC++ x64 offline installer, opens it only with consent when needed, then rechecks the version.
-Do not copy only the EXE. Missing bundled Runtime produces repair and diagnostic instructions. Fixed Runtime security patches require app updates; see DEPLOYMENT.md.
+Windows 10 2004/build 19041 或更新的 Windows 10/11，x64，需要兼容 HomePod 和 Microsoft WebView2 Runtime。
+MSIX 声明 Microsoft VCLibs Desktop 框架依赖，由 Microsoft Store 部署；独立 NSIS 安装需要系统 VC++ x64 运行库。
+缺少 WebView2 时，程序显示官方安装地址，不后台下载安装。
+Windows 10 build 19041 or later Windows 10/11, x64, a compatible HomePod and WebView2 Runtime are required.
+MSIX declares the VCLibs Desktop framework; Store deploys it. The standalone NSIS installer requires the system VC++ x64 runtime.
+If WebView2 is absent, the app explains how to install it from Microsoft; there is no automatic download/installation.
 
 ## 对应源码 / Corresponding source
 
-https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.11
-请下载 / Download **DeskAudioCast-0.1.11-corresponding-source.zip**。
+https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12
+请下载 / Download **DeskAudioCast-0.1.12-corresponding-source.zip**。
 该完整归档含锁定依赖及离线构建资料；GitHub 自动生成的源码 ZIP 不包含全部依赖，不能替代完整包。
 The complete archive includes locked dependency sources and offline build inputs. GitHub's automatic source ZIP does not replace it.
 按 / Follow [SOURCE_BUILDING.md](SOURCE_BUILDING.md). SHA-256 and source fingerprint accompany the release.

@@ -10,7 +10,7 @@ members = [
 exclude = ["vendor/airplay2-rs", "vendor/airplay2-gpl3"]
 
 [workspace.package]
-version = "0.1.11"
+version = "0.1.12"
 edition = "2021"
 license = "GPL-3.0-or-later"
 authors = ["Pablo Díaz Ruipérez <diazruiperezpablo@gmail.com>"]

@@ -1,10 +1,6 @@
 param([Parameter(Mandatory)][string]$ReleaseDirectory,[string]$Makensis,[string]$MakeAppx,[string]$MakePri)
 $ErrorActionPreference='Stop'
 $repo=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$runtimeLock=Get-Content -LiteralPath (Join-Path $repo 'packaging/windows/runtime-lock.json') -Raw | ConvertFrom-Json
-$runtimeMaterials=& (Join-Path $repo 'tools/fetch_windows_runtimes.ps1')
-$runtimeDirectory=$runtimeMaterials.runtime_directory
-$vcRedist=$runtimeMaterials.vc_redist
 $release=[IO.Path]::GetFullPath($ReleaseDirectory)
 $version=(Get-Content -LiteralPath (Join-Path $repo 'src-tauri/tauri.conf.json') -Raw | ConvertFrom-Json).version
 if($version -notmatch '^\d+\.\d+\.\d+$'){throw 'A three-part release version is required'}
@@ -25,9 +21,6 @@ $out=Join-Path $repo ('local-packages/'+$stamp)
 $payload=Join-Path $out 'payload'
 $null=New-Item -ItemType Directory -Path $payload
 Copy-Item -LiteralPath $exe -Destination (Join-Path $payload 'DeskAudioCast.exe')
-# Identical fixed runtime layout for the custom MSIX and custom NSIS. Merely
-# setting Tauri's NSIS bundler mode would not copy files into our MSIX.
-Copy-Item -LiteralPath $runtimeDirectory -Destination (Join-Path $payload 'WebView2Fixed') -Recurse
 $registry=Join-Path ([Environment]::GetFolderPath('UserProfile')) '.cargo/registry/src/index.crates.io-1949cf8c6b5b557f'
 $loader=Join-Path $registry 'webview2-com-sys-0.38.2/x64/WebView2Loader.dll'
 # Prefer the corresponding source snapshot's vendored file, usable with an empty Cargo home.
@@ -57,9 +50,9 @@ $install | Set-Content -LiteralPath $installFile -Encoding utf8
 $uninstall | Set-Content -LiteralPath $uninstallFile -Encoding utf8
 $installer=Join-Path $out ('DeskAudioCast-'+$version+'-x64-setup.exe')
 $icon=Join-Path $repo 'src-tauri/icons/desk-audio-cast/icon.ico'
-& $Makensis '/V3' '/INPUTCHARSET' 'UTF8' ('/DAPP_VERSION='+$version) ('/DVC_REDIST='+$vcRedist) ('/DVC_MIN_VERSION='+$runtimeLock.vc_redist.minimum_version) ('/DPAYLOAD='+$payload) ('/DOUTPUT='+$installer) ('/DICON='+$icon) ('/DINSTALL_FILES='+$installFile) ('/DUNINSTALL_FILES='+$uninstallFile) (Join-Path $repo 'packaging/windows/installer.nsi') *> (Join-Path $out 'nsis-build.log')
+& $Makensis '/V3' '/INPUTCHARSET' 'UTF8' ('/DAPP_VERSION='+$version) ('/DPAYLOAD='+$payload) ('/DOUTPUT='+$installer) ('/DICON='+$icon) ('/DINSTALL_FILES='+$installFile) ('/DUNINSTALL_FILES='+$uninstallFile) (Join-Path $repo 'packaging/windows/installer.nsi') *> (Join-Path $out 'nsis-build.log')
 $nsisCode=$LASTEXITCODE
-$result=[ordered]@{version=$version;target='windows-x64';public_distribution_authorized=$false;payload=@($inventory);nsis_exit_code=$nsisCode;signed=$false;installed='not_yet_tested';runtime_installation='app-local fixed WebView2; NSIS VC++ official offline installer only with interactive consent and version recheck';webview2_version=$runtimeLock.webview2.version;vc_redist_version=$runtimeLock.vc_redist.version;vc_redist_sha256=$runtimeLock.vc_redist.sha256;msix='not_yet_built'}
+$result=[ordered]@{version=$version;target='windows-x64';public_distribution_authorized=$false;payload=@($inventory);nsis_exit_code=$nsisCode;signed=$false;installed='not_yet_tested';runtime_installation='none; explicit prerequisite check';msix='not_yet_built'}
 $result.store_identity=@{name=[string]$identity.Name;publisher=[string]$identity.Publisher;publisher_display_name=[string]$manifest.Package.Properties.PublisherDisplayName;version=[string]$identity.Version}
 if($nsisCode -eq 0){$result.installer_sha256=(Get-FileHash -LiteralPath $installer -Algorithm SHA256).Hash.ToLowerInvariant()}
 $result | ConvertTo-Json -Depth 7 | Set-Content -LiteralPath (Join-Path $out 'PACKAGE_RECORD.json') -Encoding utf8

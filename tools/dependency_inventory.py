@@ -130,9 +130,8 @@ def main():
                 raise ValueError('Missing runtime license evidence: '+p['name'])
             notice.append(f'{p["name"]} {p["version"]}: {p["declared_license"]}')
     notice+=["","Native notices: legal/native/COMPONENTS.json and the original license files beside it.",
-        "WebView2 SDK Loader 1.0.3650.58 retains its original Microsoft BSD-3-Clause terms. The separately licensed Microsoft Fixed Version Runtime is bundled unchanged in WebView2Fixed; it is NOT relicensed under GPL. Original Microsoft terms are in legal/native/WebView2-Fixed-Runtime-EULA.html and the text rendering below. Embedded Chromium/third-party credits remain in the complete original Runtime.",
-        "内置微软运行时与应用GPL代码分别适用各自许可；应用的GPL修改/复制/再分发权利不因此取消。Microsoft Runtime and application code retain separate licenses; GPL rights for covered application code remain intact.",
-        "MSIX declares the Microsoft VCLibs Desktop framework dependency, supplied separately by Microsoft Store. NSIS includes the official VC++ x64 offline installer and opens Microsoft's UI only with user consent when required, then verifies DLL versions. NSIS 3.11 uses zlib compression; original COPYING is included.",
+        "WebView2 SDK Loader 1.0.3650.58 has its original Microsoft BSD-3-Clause terms; the separate Runtime is not bundled.",
+        "MSIX declares the Microsoft VCLibs Desktop framework dependency, supplied separately by Microsoft Store. NSIS requires the system VC++ x64 runtime. Neither runtime is copied into this installer. NSIS 3.11 uses zlib compression; original COPYING is included.",
         "Rust standard library 1.99.1 is partly statically linked, not merely a build tool. Its original copyright/license report and all referenced license texts are provided at legal/native/rust-1.99.1/COPYRIGHT-library.html. Open that installed file for the full offline notices. The full Rust compiler is not distributed as a runtime component.",
         "音频传输采用 ALAC 编码。 / Audio transport uses ALAC encoding.",
         "UI: @tauri-apps/api "+npm["packages"]["node_modules/@tauri-apps/api"]["version"]+" — full cached license included.",

@@ -1,0 +1,4508 @@
+{
+  "schema": 1,
+  "checked_date": "2026-10-21",
+  "scope": "fixed public Git histories plus current Windows runtime-candidate dependency graph",
+  "pinned_protocol": "dc66e2b3df1ad87a34fd9c859ec452bd787154e1",
+  "gpl3_grant_commit": "714d885a6024cf5b65fdcc6424b5d7bbad828037",
+  "gpl3_upstream_snapshot": "f824007798f71605307384829800273a4dbbcee2",
+  "common_ancestor": "a7f019fe6246ebd9701201a8a5c31e9a15243956",
+  "application_gpl3_grant_commit": "d309942c83248de60e7133b69bf2bb552dff511f",
+  "declared_grants": {
+    "pinned": "GPL-2.0",
+    "upstream_gpl3": "GPL-3.0-or-later",
+    "application_current": "GPL-3.0-or-later"
+  },
+  "heads": {
+    "upstream": "f824007798f71605307384829800273a4dbbcee2",
+    "fork": "04ae8a559fe6c4a303232ca3640ccd773d9c37aa",
+    "application": "e93535bcfeedcc3a12e3d11a15e25564208f0d78"
+  },
+  "license_document_sha256": {
+    "old_protocol": "de124e5a899ae4074ebf5c0f790494178ab66d310606b86203d67a6f3ef45168",
+    "gpl3_protocol": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  "comparison_counts": {
+    "different-content-requires-grant-or-reimplementation": 24,
+    "same-blob-in-explicit-gpl3-snapshot": 57,
+    "not-in-gpl3-snapshot": 2
+  },
+  "file_comparison": [
+    {
+      "path": "crates/airplay-audio/Cargo.toml",
+      "fork_blob": "54678da9d2cbc4bfea37236c39c2a56dcdba2d1c",
+      "gpl3_blob": "72acbfc9e2cab33af8d4be86121f7c33d11f8cf5",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/buffer.rs",
+      "fork_blob": "0a49a8c56c817c50c1c0c3a2a5ce81a74a4dfcf5",
+      "gpl3_blob": "9674cfa926d61f597633b4448f896bfd37cec59b",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/cipher.rs",
+      "fork_blob": "5192f030e98a02c7d0554d0462c3dee6583f69bf",
+      "gpl3_blob": "5192f030e98a02c7d0554d0462c3dee6583f69bf",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/src/decoder.rs",
+      "fork_blob": "7b26cd4e12e8aa5c70524d13087684bd9926b2f6",
+      "gpl3_blob": "7b26cd4e12e8aa5c70524d13087684bd9926b2f6",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/src/encoder.rs",
+      "fork_blob": "f66d22f5256dd7df6d62057b1b4061197d8fd936",
+      "gpl3_blob": "f66d22f5256dd7df6d62057b1b4061197d8fd936",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/src/eq.rs",
+      "fork_blob": "d25bfe171c316fa91c7ac3a9a0350da8485a6b06",
+      "gpl3_blob": "d25bfe171c316fa91c7ac3a9a0350da8485a6b06",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/src/lib.rs",
+      "fork_blob": "cad2cd1d81abd9732c15672a435c970672b4d013",
+      "gpl3_blob": "67fa299cd51fabe05c4eac7a2666eabf2d81f63e",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_decoder.rs",
+      "fork_blob": "b59b62399daf259a3244628d1c3655dbedffd480",
+      "gpl3_blob": "8a8ff259b94766be5300c71911a4f97c55d4f1fe",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/live_policy.rs",
+      "fork_blob": "90136500f8c24f38a43c04258b468492f5ec3368",
+      "gpl3_blob": null,
+      "result": "not-in-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/src/rtp.rs",
+      "fork_blob": "d113ec2d4c0e9137e121e388b2446d454060e5b0",
+      "gpl3_blob": "c458fbd8c675511758164fe5e3ff694f9501b20a",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/streamer.rs",
+      "fork_blob": "38200a7552f5fe39e0d1bf1a19609bd5474463d3",
+      "gpl3_blob": "419d3ed936cefba61a768797e40c4ae07c847269",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/src/traits.rs",
+      "fork_blob": "d43f2ac5f267fbf43646b314113c06fadb85555e",
+      "gpl3_blob": "178925489a10e2bd301ace484f73d2796907365f",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-audio/tests/live_capture_pipeline.rs",
+      "fork_blob": "f4d7bd58e77fa67dd05149f3bcc54c6852caaf4e",
+      "gpl3_blob": "f4d7bd58e77fa67dd05149f3bcc54c6852caaf4e",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-audio/tests/live_latency_policy.rs",
+      "fork_blob": "12f9e4f8150445a2061fb602c9178dacb32801c7",
+      "gpl3_blob": null,
+      "result": "not-in-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/.DS_Store",
+      "fork_blob": "9ac0f363b727368b7115b7fb97a28d6eaad5bbd9",
+      "gpl3_blob": "9ac0f363b727368b7115b7fb97a28d6eaad5bbd9",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/Cargo.toml",
+      "fork_blob": "ff3c392ae5e5faaa9e294ceb965a5b24c7aa6c8c",
+      "gpl3_blob": "ed770187aa48169d7946bf63633b3917ad7ad511",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-client/examples/debug_setup.rs",
+      "fork_blob": "66c6dc90883f29d81adcec319a340a5a22cc47ee",
+      "gpl3_blob": "66c6dc90883f29d81adcec319a340a5a22cc47ee",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/examples/play_audio.rs",
+      "fork_blob": "6702b621fbf7789e23e37be4681b7869a1847b6e",
+      "gpl3_blob": "6702b621fbf7789e23e37be4681b7869a1847b6e",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/examples/test_gptp.rs",
+      "fork_blob": "95cfc4f4e6d89a413c929b047e21aba4f036f70f",
+      "gpl3_blob": "95cfc4f4e6d89a413c929b047e21aba4f036f70f",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/examples/test_group.rs",
+      "fork_blob": "edcee284873b618848a28b373472a4b44aa76c94",
+      "gpl3_blob": "edcee284873b618848a28b373472a4b44aa76c94",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/builder.rs",
+      "fork_blob": "3164464587445a408e1be9b26501fdfccf94327d",
+      "gpl3_blob": "3164464587445a408e1be9b26501fdfccf94327d",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/client.rs",
+      "fork_blob": "df56a3103fdaa6770547722d0085eea52b7fb224",
+      "gpl3_blob": "d2aa7872a449989a32ba4b9b51fee2398ebd1d95",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-client/src/connection.rs",
+      "fork_blob": "e3bfe939eaa670f31bd58c736cefd2825910cc4d",
+      "gpl3_blob": "fb4e54b9d998bbc6fa0367b9d2fcd49ad5054d41",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-client/src/events.rs",
+      "fork_blob": "b10dc0f707b538658c6983e50ba5a35768f141be",
+      "gpl3_blob": "b10dc0f707b538658c6983e50ba5a35768f141be",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/group.rs",
+      "fork_blob": "330bcf766eb568fdd537429ef92d768b1912d0f4",
+      "gpl3_blob": "330bcf766eb568fdd537429ef92d768b1912d0f4",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/lib.rs",
+      "fork_blob": "6c2adf9c020eb656105007e9229d4c6238a76e03",
+      "gpl3_blob": "06fdc27d13b434f19864b6381294fb13008e20cb",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-client/src/playback.rs",
+      "fork_blob": "9412b74019828f86cc12ce54b36990f987b5a857",
+      "gpl3_blob": "9412b74019828f86cc12ce54b36990f987b5a857",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/raop_connection.rs",
+      "fork_blob": "88683f51adfc23da6d1eb98e24b8276d9eaeb85c",
+      "gpl3_blob": "88683f51adfc23da6d1eb98e24b8276d9eaeb85c",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-client/src/stats.rs",
+      "fork_blob": "95e72b6e287fe5bb39e9c3fa2cef5c50d8a9c74a",
+      "gpl3_blob": "95e72b6e287fe5bb39e9c3fa2cef5c50d8a9c74a",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-core/Cargo.toml",
+      "fork_blob": "e0654316d006b6072df3840fddc0242a3ed72ffa",
+      "gpl3_blob": "334566eea62472858a240ee4d0d5ddf680cf439d",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-core/src/codec.rs",
+      "fork_blob": "91c847ece5b417f030ee9e34e35cdde7e17fd0d8",
+      "gpl3_blob": "91c847ece5b417f030ee9e34e35cdde7e17fd0d8",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-core/src/device.rs",
+      "fork_blob": "6e09b9d6e6582c4e14bdcd8cd91ca247b1711c01",
+      "gpl3_blob": "cd05cf5c97313503631554b544a1de4668adbea4",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-core/src/error.rs",
+      "fork_blob": "1045a05623d35b5c4d74cb4fc2a153bbd6be32d2",
+      "gpl3_blob": "1045a05623d35b5c4d74cb4fc2a153bbd6be32d2",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-core/src/features.rs",
+      "fork_blob": "795a77b7faad1110171e9f5b8e42ce2308fb4ab0",
+      "gpl3_blob": "795a77b7faad1110171e9f5b8e42ce2308fb4ab0",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-core/src/lib.rs",
+      "fork_blob": "5ff0aa153150ef5f129a2439a481150ca0d557ba",
+      "gpl3_blob": "5ff0aa153150ef5f129a2439a481150ca0d557ba",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-core/src/stream.rs",
+      "fork_blob": "a9c8d849ca13f88d17f55d7f917e3a0738d99ae6",
+      "gpl3_blob": "a9c8d849ca13f88d17f55d7f917e3a0738d99ae6",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/Cargo.toml",
+      "fork_blob": "175963b85467b5ddc578f78b331f767be47081c4",
+      "gpl3_blob": "851453a07e24024e81f78bfaaf02ba0ccde5699c",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-crypto/benches/crypto_benches.rs",
+      "fork_blob": "c9db9415253395c3b2fb8001f7971e5f5cf9eb62",
+      "gpl3_blob": "c9db9415253395c3b2fb8001f7971e5f5cf9eb62",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/aes.rs",
+      "fork_blob": "440e01b61b7f07a078bfa47517f4c615eb7d7869",
+      "gpl3_blob": "440e01b61b7f07a078bfa47517f4c615eb7d7869",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/chacha.rs",
+      "fork_blob": "da361673e04039c77f44c4243a59c006aa179518",
+      "gpl3_blob": "da361673e04039c77f44c4243a59c006aa179518",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/curve25519.rs",
+      "fork_blob": "2bbf148eec5435f868b738250af55756146ade53",
+      "gpl3_blob": "2bbf148eec5435f868b738250af55756146ade53",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/digest.rs",
+      "fork_blob": "197075280efc4c266001d4b9b524720558c7a977",
+      "gpl3_blob": "197075280efc4c266001d4b9b524720558c7a977",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/ed25519.rs",
+      "fork_blob": "7de21f4375b7a771a0f69418f1386e195d50426e",
+      "gpl3_blob": "7de21f4375b7a771a0f69418f1386e195d50426e",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/hkdf.rs",
+      "fork_blob": "708ecc52aaa504b91a5b431e8fad14bbc9a6b733",
+      "gpl3_blob": "708ecc52aaa504b91a5b431e8fad14bbc9a6b733",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/keys.rs",
+      "fork_blob": "a752c43cbb04738bdf6dbfb60f221e54a41e54f5",
+      "gpl3_blob": "a752c43cbb04738bdf6dbfb60f221e54a41e54f5",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/lib.rs",
+      "fork_blob": "0cd8b775f6a19b29bd07722da49b084af98206ae",
+      "gpl3_blob": "0cd8b775f6a19b29bd07722da49b084af98206ae",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/rsa.rs",
+      "fork_blob": "a7192ddbfbd78065c7aa20b3d1c6f75317e181c6",
+      "gpl3_blob": "a7192ddbfbd78065c7aa20b3d1c6f75317e181c6",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/srp.rs",
+      "fork_blob": "4645308b81401bf130d4634a1b110d02662de80e",
+      "gpl3_blob": "4645308b81401bf130d4634a1b110d02662de80e",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-crypto/src/tlv.rs",
+      "fork_blob": "25a0bd1460f8386a309d19510f020b92914bd9b1",
+      "gpl3_blob": "25a0bd1460f8386a309d19510f020b92914bd9b1",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-discovery/Cargo.toml",
+      "fork_blob": "1c514fda18e711f60062ea1490dddcc7bbecbf3e",
+      "gpl3_blob": "92cf0de9d2c807e9bbd300e69c3c5b14708aa203",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-discovery/examples/debug_devices.rs",
+      "fork_blob": "40b33a7c62706e1b2e22029bff92cbfbc6c4f94f",
+      "gpl3_blob": "40b33a7c62706e1b2e22029bff92cbfbc6c4f94f",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-discovery/src/browser.rs",
+      "fork_blob": "b834962ea5087e05fd0449bfca0b5dfbebf12aec",
+      "gpl3_blob": "b834962ea5087e05fd0449bfca0b5dfbebf12aec",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-discovery/src/lib.rs",
+      "fork_blob": "8f9646b834e746563757c552c17dd0e611c0a592",
+      "gpl3_blob": "8f9646b834e746563757c552c17dd0e611c0a592",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-discovery/src/parser.rs",
+      "fork_blob": "0db67c7d6d89b6cf6e4062f50f25be174dece328",
+      "gpl3_blob": "2185bf9f1d90e21b78f8656fdeb8c44e7edc402f",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-discovery/src/traits.rs",
+      "fork_blob": "3bc330fedf3943b2ddcae70dcba979d191ebff50",
+      "gpl3_blob": "3bc330fedf3943b2ddcae70dcba979d191ebff50",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/Cargo.toml",
+      "fork_blob": "2393ed9f0074b4b6f6ee507053001def01ac8a2b",
+      "gpl3_blob": "36bb31a2a0c45fd097a05f09d837f45d93a7d780",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-pairing/examples/pair_with_device.rs",
+      "fork_blob": "bca2931abfc28a6ba92d8d911cab44ef504f5747",
+      "gpl3_blob": "bca2931abfc28a6ba92d8d911cab44ef504f5747",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/channel.rs",
+      "fork_blob": "57d2627444587bc07bc0dc29e63aac2ec3256dd1",
+      "gpl3_blob": "57d2627444587bc07bc0dc29e63aac2ec3256dd1",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/controller.rs",
+      "fork_blob": "5f822d5358a0b6db4175804c9c1bbf0d293f0e54",
+      "gpl3_blob": "5f822d5358a0b6db4175804c9c1bbf0d293f0e54",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/fairplay.rs",
+      "fork_blob": "6ab6ab13653acd649f3edc0b5105d471c98383a4",
+      "gpl3_blob": "6ab6ab13653acd649f3edc0b5105d471c98383a4",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/lib.rs",
+      "fork_blob": "135bcff8b1107f45649d779ce16ab279472d788c",
+      "gpl3_blob": "135bcff8b1107f45649d779ce16ab279472d788c",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/pair_setup.rs",
+      "fork_blob": "7c118e2ae3fcd2c50e6b62ff46ba60e7fd0143d0",
+      "gpl3_blob": "7c118e2ae3fcd2c50e6b62ff46ba60e7fd0143d0",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/pair_verify.rs",
+      "fork_blob": "08de4d3adfc6540f2789a25a9f2f3c62ca7e598c",
+      "gpl3_blob": "08de4d3adfc6540f2789a25a9f2f3c62ca7e598c",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/session.rs",
+      "fork_blob": "3cc8a06434ad0f1ad29b5a5532c5f246525ef923",
+      "gpl3_blob": "3cc8a06434ad0f1ad29b5a5532c5f246525ef923",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-pairing/src/traits.rs",
+      "fork_blob": "fdd028cae8003402c06af362bc5f55670c31530f",
+      "gpl3_blob": "fdd028cae8003402c06af362bc5f55670c31530f",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-resampler/Cargo.toml",
+      "fork_blob": "917267c98d9ae219279bd590599a1b3838b91a31",
+      "gpl3_blob": "8fcc75fd04d67349b3427b45e8333a12945639e6",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-resampler/src/lib.rs",
+      "fork_blob": "fedae322a0abfdb5e7b12314774e5f3bf525185c",
+      "gpl3_blob": "fedae322a0abfdb5e7b12314774e5f3bf525185c",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/Cargo.toml",
+      "fork_blob": "3007aade6bda65b15de96cec317441418fcb229f",
+      "gpl3_blob": "d008569220e927dec14c88cca50b2a5ce9e446e1",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/connection.rs",
+      "fork_blob": "da3ee97e4d2b6a5f24403123c150902154be23eb",
+      "gpl3_blob": "a4512dfee667b33c9da985924740f76eecc2a4f7",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/lib.rs",
+      "fork_blob": "596b22c0c2c95c2504407e955b6c8091e992a290",
+      "gpl3_blob": "596b22c0c2c95c2504407e955b6c8091e992a290",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/plist_codec.rs",
+      "fork_blob": "428c81e472defa29a0bb48273689d347cac269d5",
+      "gpl3_blob": "428c81e472defa29a0bb48273689d347cac269d5",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/raop_session.rs",
+      "fork_blob": "1489dc8b2241285af9257a2e63ecbea03f86a123",
+      "gpl3_blob": "1489dc8b2241285af9257a2e63ecbea03f86a123",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/request.rs",
+      "fork_blob": "656c56d26364ea4f18be372cf65ef8edf734750e",
+      "gpl3_blob": "656c56d26364ea4f18be372cf65ef8edf734750e",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/response.rs",
+      "fork_blob": "5d298602ef1f2f520303490fab739e79c4f34454",
+      "gpl3_blob": "5d298602ef1f2f520303490fab739e79c4f34454",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/sdp.rs",
+      "fork_blob": "d12f314f616104e26927cd47f7d99bc139dd0a8c",
+      "gpl3_blob": "d12f314f616104e26927cd47f7d99bc139dd0a8c",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/session.rs",
+      "fork_blob": "8ae5fd4f3cece0cd7de51d88342c049973e3038e",
+      "gpl3_blob": "7f04d465d757ce76891130e12fb3c07b0c0ddc7c",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-rtsp/src/traits.rs",
+      "fork_blob": "03a413c6c59c1f6afaf0333423fd062a29e678af",
+      "gpl3_blob": "03a413c6c59c1f6afaf0333423fd062a29e678af",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-timing/Cargo.toml",
+      "fork_blob": "a987b3ab6ea04e744585688e2274b9e878794d55",
+      "gpl3_blob": "1000c722b07ad113fd8cce6be5d9a0c38f561d40",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-timing/src/clock.rs",
+      "fork_blob": "a773f45fde08b1d605cef52c6374a196c6bd2cec",
+      "gpl3_blob": "a773f45fde08b1d605cef52c6374a196c6bd2cec",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-timing/src/lib.rs",
+      "fork_blob": "1fe9e750608bc517b3d15f32ecfa78dc5e88aa5b",
+      "gpl3_blob": "1fe9e750608bc517b3d15f32ecfa78dc5e88aa5b",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    },
+    {
+      "path": "crates/airplay-timing/src/ntp.rs",
+      "fork_blob": "9be18a49de6e9279a5c5d6b323c9dfbd9b4328e6",
+      "gpl3_blob": "ff58cd8cef4b83be8dd3782bd6edb1f2c985bde0",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-timing/src/ptp.rs",
+      "fork_blob": "392351faf466de260ac95ee4f2695befd38e63a2",
+      "gpl3_blob": "bd3a4370caa53874ea3a34cf393b251954ac8699",
+      "result": "different-content-requires-grant-or-reimplementation"
+    },
+    {
+      "path": "crates/airplay-timing/src/traits.rs",
+      "fork_blob": "7c06f78f66d1fd472b42ee2e3efea6b0ed89ef74",
+      "gpl3_blob": "7c06f78f66d1fd472b42ee2e3efea6b0ed89ef74",
+      "result": "same-blob-in-explicit-gpl3-snapshot"
+    }
+  ],
+  "fork_commits": [
+    {
+      "sha": "dc66e2b3df1ad87a34fd9c859ec452bd787154e1",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-09-29T10:37:52+02:00",
+      "subject": "fix: read actual AirPlay 2 volume from receiver info",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        "crates/airplay-client/src/connection.rs",
+        "crates/airplay-rtsp/src/session.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "1429cefa3819bb8163c8e3aa6b9a4a2e60a6d65c",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-09-29T10:20:38+02:00",
+      "subject": "feat: share live group timeline and harden receiver session lifecycle",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        ".github/workflows/live-audio.yml",
+        "crates/airplay-audio/src/rtp.rs",
+        "crates/airplay-audio/src/streamer.rs",
+        "crates/airplay-client/src/connection.rs",
+        "crates/airplay-rtsp/src/connection.rs",
+        "crates/airplay-rtsp/src/session.rs",
+        "crates/airplay-timing/src/ntp.rs",
+        "crates/airplay-timing/src/ptp.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "c9d41faafbbcccd5b3a53da0fc0d8a0879e31aa7",
+      "author": "Noah Gabel",
+      "author_date": "2026-09-28T20:54:35+02:00",
+      "subject": "fix(airplay-timing): stop NTP run_loop when the server is dropped",
+      "reachable_from_current_gpl3_upstream": true,
+      "paths": [
+        "crates/airplay-timing/src/ntp.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "078db7c072e383b3cbefd2de74b5db37a1c11a2e",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-09-28T19:15:15+02:00",
+      "subject": "fix: close live workers even when control and diagnostics retain handles",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        "crates/airplay-audio/src/live_decoder.rs",
+        "crates/airplay-audio/src/streamer.rs",
+        "crates/airplay-audio/tests/live_latency_policy.rs",
+        "crates/airplay-client/src/connection.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "a0cb9e447c825c63f9a197c5fe8cde2018b4ff3b",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-09-28T19:03:34+02:00",
+      "subject": "feat: add opt-in live audio buffer policy and transport diagnostics",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        ".github/workflows/live-audio.yml",
+        "crates/airplay-audio/src/buffer.rs",
+        "crates/airplay-audio/src/lib.rs",
+        "crates/airplay-audio/src/live_decoder.rs",
+        "crates/airplay-audio/src/live_policy.rs",
+        "crates/airplay-audio/src/streamer.rs",
+        "crates/airplay-audio/src/traits.rs",
+        "crates/airplay-audio/tests/live_latency_policy.rs",
+        "crates/airplay-client/src/connection.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "655b2768e2a17aa64f84d0b5b36325018963e909",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-09-09T11:12:11+02:00",
+      "subject": "fix: configure sender thread with MMCSS priority",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        "crates/airplay-audio/src/streamer.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "1baeaae336ca3a9828e732500082f5fd1767d2fd",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-05-21T14:08:55+02:00",
+      "subject": "airplay-audio: MMCSS Pro Audio + TIME_CRITICAL for sender thread on Windows",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        "crates/airplay-audio/src/streamer.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    },
+    {
+      "sha": "d8125d42d7f042f6cceb214ad8cae11693cc7b23",
+      "author": "Pablo Díaz Ruipérez",
+      "author_date": "2026-05-21T01:26:27+02:00",
+      "subject": "fix(airplay-audio): gate set_socket_qos behind cfg(unix), stub on Windows",
+      "reachable_from_current_gpl3_upstream": false,
+      "paths": [
+        "crates/airplay-audio/src/rtp.rs"
+      ],
+      "scope": "Publication under GPL3 must be evidenced separately; reachability is not alone a rights ruling."
+    }
+  ],
+  "fork_changes": [
+    {
+      "path": "crates/airplay-audio/src/buffer.rs",
+      "added_lines": 4,
+      "deleted_lines": 1
+    },
+    {
+      "path": "crates/airplay-audio/src/lib.rs",
+      "added_lines": 3,
+      "deleted_lines": 1
+    },
+    {
+      "path": "crates/airplay-audio/src/live_decoder.rs",
+      "added_lines": 156,
+      "deleted_lines": 34
+    },
+    {
+      "path": "crates/airplay-audio/src/live_policy.rs",
+      "added_lines": 139,
+      "deleted_lines": 0
+    },
+    {
+      "path": "crates/airplay-audio/src/rtp.rs",
+      "added_lines": 34,
+      "deleted_lines": 0
+    },
+    {
+      "path": "crates/airplay-audio/src/streamer.rs",
+      "added_lines": 267,
+      "deleted_lines": 31
+    },
+    {
+      "path": "crates/airplay-audio/src/traits.rs",
+      "added_lines": 1,
+      "deleted_lines": 0
+    },
+    {
+      "path": "crates/airplay-audio/tests/live_latency_policy.rs",
+      "added_lines": 183,
+      "deleted_lines": 0
+    },
+    {
+      "path": "crates/airplay-client/src/connection.rs",
+      "added_lines": 91,
+      "deleted_lines": 9
+    },
+    {
+      "path": "crates/airplay-rtsp/src/connection.rs",
+      "added_lines": 37,
+      "deleted_lines": 8
+    },
+    {
+      "path": "crates/airplay-rtsp/src/session.rs",
+      "added_lines": 60,
+      "deleted_lines": 0
+    },
+    {
+      "path": "crates/airplay-timing/src/ntp.rs",
+      "added_lines": 21,
+      "deleted_lines": 4
+    },
+    {
+      "path": "crates/airplay-timing/src/ptp.rs",
+      "added_lines": 6,
+      "deleted_lines": 2
+    }
+  ],
+  "fork_change_totals": {
+    "files": 13,
+    "added": 1002,
+    "deleted": 90
+  },
+  "gpl2_dependency_assessment": [
+    {
+      "name": "aead",
+      "version": "0.5.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "aes",
+      "version": "0.8.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "aes-gcm",
+      "version": "0.10.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "aho-corasick",
+      "version": "1.1.4",
+      "expression": "Unlicense OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "airplay-audio",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-client",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-core",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-crypto",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-discovery",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-pairing",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-resampler",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-rtsp",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "airplay-timing",
+      "version": "0.1.0",
+      "expression": null,
+      "gpl2": {
+        "status": "grant-unresolved",
+        "choice": null
+      }
+    },
+    {
+      "name": "alac-encoder",
+      "version": "0.3.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "alloc-no-stdlib",
+      "version": "2.0.4",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "alloc-stdlib",
+      "version": "0.2.2",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "anyhow",
+      "version": "1.0.102",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "arrayvec",
+      "version": "0.7.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "async-stream",
+      "version": "0.3.6",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "audio-capture",
+      "version": "0.1.8",
+      "expression": "GPL-3.0-or-later",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "audio-encode",
+      "version": "0.1.8",
+      "expression": "GPL-3.0-or-later",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "base64",
+      "version": "0.22.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "base64ct",
+      "version": "1.8.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "biquad",
+      "version": "0.4.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bit-set",
+      "version": "0.8.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bit-vec",
+      "version": "0.8.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bitflags",
+      "version": "1.3.2",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bitflags",
+      "version": "2.11.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.10.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "block-padding",
+      "version": "0.3.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "brotli",
+      "version": "8.0.2",
+      "expression": "BSD-3-Clause AND MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause",
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "brotli-decompressor",
+      "version": "5.0.0",
+      "expression": "BSD-3-Clause/MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "bs58",
+      "version": "0.5.1",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bytemuck",
+      "version": "1.25.0",
+      "expression": "Zlib OR Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "byteorder",
+      "version": "1.5.0",
+      "expression": "Unlicense OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "bytes",
+      "version": "1.11.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "camino",
+      "version": "1.2.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cap-core",
+      "version": "0.1.8",
+      "expression": "GPL-3.0-or-later",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "cargo-platform",
+      "version": "0.1.9",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cargo_metadata",
+      "version": "0.19.2",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cbc",
+      "version": "0.1.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cfb",
+      "version": "0.7.3",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "chacha20",
+      "version": "0.9.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "chacha20poly1305",
+      "version": "0.10.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "chrono",
+      "version": "0.4.44",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cipher",
+      "version": "0.4.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "concurrent-queue",
+      "version": "2.5.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "conexion-airplay",
+      "version": "0.1.8",
+      "expression": "GPL-3.0-or-later",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "const-oid",
+      "version": "0.9.6",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cookie",
+      "version": "0.18.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.2.17",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "crossbeam-channel",
+      "version": "0.5.15",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "crossbeam-utils",
+      "version": "0.8.21",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.1.7",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "cssparser",
+      "version": "0.36.0",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "/* This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/. */\n\n#![crate_name = \"cssparser\"]\n#![crate_type = \"rlib\"]\n#![cfg_attr(feature = \"bench\", feature(test))]\n#![deny(missing_docs)]\n\n/*!\n\nImplementation of [CSS Syntax Module Level 3](https://drafts.csswg.org/css-syntax/) for Rust."
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "ctor",
+      "version": "0.8.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ctr",
+      "version": "0.9.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "curve25519-dalek",
+      "version": "4.1.3",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "der",
+      "version": "0.7.10",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "deranged",
+      "version": "0.5.8",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "derive_more",
+      "version": "2.1.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "digest",
+      "version": "0.10.7",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dirs",
+      "version": "6.0.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dirs-sys",
+      "version": "0.5.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dom_query",
+      "version": "0.27.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dpi",
+      "version": "0.1.2",
+      "expression": "Apache-2.0 AND MIT",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "dtoa",
+      "version": "1.0.11",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dtoa-short",
+      "version": "0.3.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "/* This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at http://mozilla.org/MPL/2.0/. */\n\n#![no_std]\n\nextern crate dtoa;\n\nuse core::fmt::Write;\nuse core::{fmt, str};\n\n/// Format the given `value` into `dest` and return the notation it uses."
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "dtor",
+      "version": "0.3.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "dunce",
+      "version": "1.0.5",
+      "expression": "CC0-1.0 OR MIT-0 OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "CC0-1.0"
+        ]
+      }
+    },
+    {
+      "name": "dyn-clone",
+      "version": "1.0.20",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ed25519",
+      "version": "2.2.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ed25519-dalek",
+      "version": "2.2.0",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "encoding_rs",
+      "version": "0.8.35",
+      "expression": "(Apache-2.0 OR MIT) AND BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause",
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "erased-serde",
+      "version": "0.4.10",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "extended",
+      "version": "0.1.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "fastrand",
+      "version": "2.4.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "flume",
+      "version": "0.11.1",
+      "expression": "Apache-2.0/MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "fnv",
+      "version": "1.0.7",
+      "expression": "Apache-2.0 / MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "foldhash",
+      "version": "0.2.0",
+      "expression": "Zlib",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Zlib"
+        ]
+      }
+    },
+    {
+      "name": "form_urlencoded",
+      "version": "1.2.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-channel",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-core",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-executor",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-io",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-sink",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-task",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "futures-util",
+      "version": "0.3.32",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "generic-array",
+      "version": "0.14.7",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "getrandom",
+      "version": "0.2.17",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "getrandom",
+      "version": "0.3.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "getrandom",
+      "version": "0.4.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ghash",
+      "version": "0.5.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "glob",
+      "version": "0.3.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.12.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "heck",
+      "version": "0.5.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "hex",
+      "version": "0.4.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "hkdf",
+      "version": "0.12.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "hmac",
+      "version": "0.12.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "html5ever",
+      "version": "0.38.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "http",
+      "version": "1.4.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "icu_collections",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_locale_core",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_normalizer",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_normalizer_data",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_properties",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_properties_data",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "icu_provider",
+      "version": "2.2.0",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "idna",
+      "version": "1.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "idna_adapter",
+      "version": "1.2.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "if-addrs",
+      "version": "0.13.4",
+      "expression": "MIT OR BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "indexmap",
+      "version": "1.9.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "infer",
+      "version": "0.19.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "inout",
+      "version": "0.1.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "json-patch",
+      "version": "3.0.1",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "jsonptr",
+      "version": "0.6.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "keyboard-types",
+      "version": "0.7.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "lazy_static",
+      "version": "1.5.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "libc",
+      "version": "0.2.186",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "libm",
+      "version": "0.1.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "libm",
+      "version": "0.2.16",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "litemap",
+      "version": "0.8.2",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "lock_api",
+      "version": "0.4.14",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "log",
+      "version": "0.4.29",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "markup5ever",
+      "version": "0.38.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "matchers",
+      "version": "0.2.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "md-5",
+      "version": "0.10.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "mdns-sd",
+      "version": "0.11.5",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.0",
+      "expression": "Unlicense OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "mime",
+      "version": "0.3.17",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "mio",
+      "version": "1.2.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "muda",
+      "version": "0.19.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "new_debug_unreachable",
+      "version": "1.0.6",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "nu-ansi-term",
+      "version": "0.50.3",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-bigint",
+      "version": "0.4.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-bigint-dig",
+      "version": "0.8.6",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-complex",
+      "version": "0.4.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-conv",
+      "version": "0.2.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-integer",
+      "version": "0.1.46",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-iter",
+      "version": "0.1.45",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "once_cell",
+      "version": "1.21.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "opaque-debug",
+      "version": "0.3.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "open",
+      "version": "5.3.5",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "option-ext",
+      "version": "0.2.0",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "os_pipe",
+      "version": "1.2.3",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "parking_lot",
+      "version": "0.12.5",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "parking_lot_core",
+      "version": "0.9.12",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "pem-rfc7468",
+      "version": "0.7.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "percent-encoding",
+      "version": "2.3.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "phf",
+      "version": "0.13.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "phf_shared",
+      "version": "0.13.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "pin-project-lite",
+      "version": "0.2.17",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "pkcs1",
+      "version": "0.7.5",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "pkcs8",
+      "version": "0.10.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "plist",
+      "version": "1.9.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "polling",
+      "version": "2.8.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "poly1305",
+      "version": "0.8.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "polyval",
+      "version": "0.6.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "portable-atomic",
+      "version": "1.13.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "portable-atomic-util",
+      "version": "0.2.7",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "potential_utf",
+      "version": "0.1.5",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "powerfmt",
+      "version": "0.2.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ppv-lite86",
+      "version": "0.2.21",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "precomputed-hash",
+      "version": "0.1.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "primal-check",
+      "version": "0.3.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.106",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "quick-xml",
+      "version": "0.39.4",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "quote",
+      "version": "1.0.45",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rand",
+      "version": "0.8.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rand_chacha",
+      "version": "0.3.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rand_core",
+      "version": "0.6.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "raw-window-handle",
+      "version": "0.6.2",
+      "expression": "MIT OR Apache-2.0 OR Zlib",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "realfft",
+      "version": "3.5.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ref-cast",
+      "version": "1.0.25",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "regex",
+      "version": "1.12.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "regex-automata",
+      "version": "0.4.14",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "regex-syntax",
+      "version": "0.8.10",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "ringbuf",
+      "version": "0.4.8",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rsa",
+      "version": "0.9.10",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rubato",
+      "version": "0.15.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rustc-hash",
+      "version": "2.1.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "rustfft",
+      "version": "6.4.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "same-file",
+      "version": "1.0.6",
+      "expression": "Unlicense/MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "schemars",
+      "version": "0.8.22",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "schemars",
+      "version": "0.9.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "schemars",
+      "version": "1.2.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "scopeguard",
+      "version": "1.2.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "selectors",
+      "version": "0.36.1",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "lib.rs",
+            "header": "/* This Source Code Form is subject to the terms of the Mozilla Public\n * License, v. 2.0. If a copy of the MPL was not distributed with this\n * file, You can obtain one at https://mozilla.org/MPL/2.0/. */\n\n// Make |cargo bench| work.\n#![cfg_attr(feature = \"bench\", feature(test))]\n\npub mod attr;\npub mod bloom;\nmod builder;\npub mod context;\npub mod kleene_value;"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "semver",
+      "version": "1.0.28",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde",
+      "version": "1.0.228",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde-untagged",
+      "version": "0.1.9",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde_bytes",
+      "version": "0.11.19",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.228",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde_json",
+      "version": "1.0.149",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde_spanned",
+      "version": "1.1.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serde_with",
+      "version": "3.20.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "serialize-to-javascript",
+      "version": "0.1.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "servo_arc",
+      "version": "0.4.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "sha1",
+      "version": "0.10.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "sha2",
+      "version": "0.10.9",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "sharded-slab",
+      "version": "0.1.7",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "shared_child",
+      "version": "1.1.1",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "signature",
+      "version": "2.2.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "siphasher",
+      "version": "1.0.3",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "slab",
+      "version": "0.4.12",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "smallvec",
+      "version": "1.15.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "socket2",
+      "version": "0.5.10",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "socket2",
+      "version": "0.6.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "softbuffer",
+      "version": "0.4.8",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "spin",
+      "version": "0.9.8",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "spin_sleep",
+      "version": "1.3.3",
+      "expression": "Apache-2.0",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "spki",
+      "version": "0.7.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "stable_deref_trait",
+      "version": "1.2.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "strength_reduce",
+      "version": "0.2.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "string_cache",
+      "version": "0.9.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "subtle",
+      "version": "2.6.1",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "symlink",
+      "version": "0.1.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "symphonia",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n\n//! # Project Symphonia\n//!"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-bundle-flac",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-bundle-mp3",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-codec-aac",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-codec-adpcm",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-codec-alac",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-codec-pcm",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-codec-vorbis",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-core",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]\n#![allow(clippy::excessive_precision)]\n#![allow(clippy::identity_op)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-format-caf",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2024 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-format-isomp4",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]\n#![allow(clippy::excessive_precision)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-format-mkv",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-format-ogg",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-format-riff",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-metadata",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n#![warn(rust_2018_idioms)]\n#![forbid(unsafe_code)]\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "symphonia-utils-xiph",
+      "version": "0.5.5",
+      "expression": "MPL-2.0",
+      "gpl2": {
+        "status": "conditional-secondary-license-review",
+        "choice": [
+          "MPL-2.0"
+        ]
+      },
+      "mpl_review": {
+        "non_template_optout_matches": [],
+        "grant_headers": [
+          {
+            "file": "src/lib.rs",
+            "header": "// Symphonia\n// Copyright (c) 2019-2022 The Project Symphonia Developers.\n//\n// This Source Code Form is subject to the terms of the Mozilla Public\n// License, v. 2.0. If a copy of the MPL was not distributed with this\n// file, You can obtain one at https://mozilla.org/MPL/2.0/.\n\n// The following lints are allowed in all Symphonia crates. Please see clippy.toml for their\n// justification.\n#![allow(clippy::comparison_chain)]\n#![allow(clippy::excessive_precision)]\n#![allow(clippy::identity_op)]"
+          }
+        ],
+        "limitation": "No match is not a complete historical secondary-license clearance; preserve MPL and source duties."
+      }
+    },
+    {
+      "name": "tao",
+      "version": "0.35.2",
+      "expression": "Apache-2.0",
+      "gpl2": {
+        "status": "gpl2-incompatible-expression",
+        "choice": null
+      }
+    },
+    {
+      "name": "tauri",
+      "version": "2.11.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tauri-plugin-shell",
+      "version": "2.3.5",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tauri-plugin-store",
+      "version": "2.4.3",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tauri-runtime",
+      "version": "2.11.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tauri-runtime-wry",
+      "version": "2.11.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tauri-utils",
+      "version": "2.9.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tendril",
+      "version": "0.5.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "thiserror",
+      "version": "1.0.69",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.18",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "thread_local",
+      "version": "1.1.9",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "time",
+      "version": "0.3.47",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "time-core",
+      "version": "0.1.8",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tinystr",
+      "version": "0.8.3",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "tinyvec",
+      "version": "1.11.0",
+      "expression": "Zlib OR Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tinyvec_macros",
+      "version": "0.1.1",
+      "expression": "MIT OR Apache-2.0 OR Zlib",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tokio",
+      "version": "1.52.3",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tokio-stream",
+      "version": "0.1.18",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "toml",
+      "version": "1.1.2+spec-1.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "toml_datetime",
+      "version": "1.1.1+spec-1.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "toml_parser",
+      "version": "1.1.2+spec-1.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "toml_writer",
+      "version": "1.1.1+spec-1.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tracing",
+      "version": "0.1.44",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tracing-appender",
+      "version": "0.2.5",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tracing-core",
+      "version": "0.1.36",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tracing-log",
+      "version": "0.2.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tracing-subscriber",
+      "version": "0.3.23",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "transpose",
+      "version": "0.2.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "tray-icon",
+      "version": "0.23.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "typeid",
+      "version": "1.0.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unic-char-property",
+      "version": "0.9.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unic-char-range",
+      "version": "0.9.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unic-common",
+      "version": "0.9.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unic-ucd-ident",
+      "version": "0.9.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unic-ucd-version",
+      "version": "0.9.0",
+      "expression": "MIT/Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "expression": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT",
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "unicode-segmentation",
+      "version": "1.13.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "universal-hash",
+      "version": "0.5.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "url",
+      "version": "2.5.8",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "urlpattern",
+      "version": "0.3.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "utf-8",
+      "version": "0.7.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "utf8_iter",
+      "version": "1.0.4",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "uuid",
+      "version": "1.23.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "walkdir",
+      "version": "2.5.0",
+      "expression": "Unlicense/MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "wasapi",
+      "version": "0.15.0",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "web_atoms",
+      "version": "0.2.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "webview2-com",
+      "version": "0.38.2",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "webview2-com-sys",
+      "version": "0.38.2",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "widestring",
+      "version": "1.2.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "winapi-util",
+      "version": "0.1.11",
+      "expression": "Unlicense OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "window-vibrancy",
+      "version": "0.6.0",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows",
+      "version": "0.57.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows",
+      "version": "0.61.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-collections",
+      "version": "0.2.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-core",
+      "version": "0.57.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-core",
+      "version": "0.61.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-future",
+      "version": "0.2.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-link",
+      "version": "0.1.3",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-link",
+      "version": "0.2.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-numerics",
+      "version": "0.2.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-result",
+      "version": "0.1.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-result",
+      "version": "0.3.4",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-strings",
+      "version": "0.4.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.48.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.52.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.59.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.60.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-targets",
+      "version": "0.48.5",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-targets",
+      "version": "0.52.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-targets",
+      "version": "0.53.5",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-threading",
+      "version": "0.1.0",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows-version",
+      "version": "0.1.7",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "version": "0.48.5",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "version": "0.52.6",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "windows_x86_64_msvc",
+      "version": "0.53.1",
+      "expression": "MIT OR Apache-2.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "winnow",
+      "version": "1.0.3",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "writeable",
+      "version": "0.6.3",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "wry",
+      "version": "0.55.1",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "x25519-dalek",
+      "version": "2.0.1",
+      "expression": "BSD-3-Clause",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-3-Clause"
+        ]
+      }
+    },
+    {
+      "name": "yoke",
+      "version": "0.8.2",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "zerocopy",
+      "version": "0.8.48",
+      "expression": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "BSD-2-Clause"
+        ]
+      }
+    },
+    {
+      "name": "zerofrom",
+      "version": "0.1.8",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "zeroize",
+      "version": "1.8.2",
+      "expression": "Apache-2.0 OR MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    },
+    {
+      "name": "zerotrie",
+      "version": "0.2.4",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "zerovec",
+      "version": "0.11.6",
+      "expression": "Unicode-3.0",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "Unicode-3.0"
+        ]
+      }
+    },
+    {
+      "name": "zmij",
+      "version": "1.0.21",
+      "expression": "MIT",
+      "gpl2": {
+        "status": "candidate-only-text-and-native-review-required",
+        "choice": [
+          "MIT"
+        ]
+      }
+    }
+  ],
+  "linked_symbol_evidence": {
+    "map_sha256": "1227684e3d696b0c01ee2d328cb6b29b6a0c5d850c268c18d6eb869c0d843c84",
+    "spin_sleep_symbol_mentions": 75,
+    "tao_symbol_mentions": 1545,
+    "dpi_symbol_mentions": 84,
+    "limitation": "Mentions are supportive only; target graph and source usage are also reviewed."
+  },
+  "decision": {
+    "target_license": "GPL-3.0-or-later",
+    "production_protocol_relicensed": false,
+    "F1_resolved": false,
+    "blocker": "GPL3 rights for fork-specific additions are not explicitly established by the reviewed evidence.",
+    "gpl2_fallback": "not_viable_for_current_combination_without_replacements_and_reworking_upstream_GPL3_application_changes",
+    "recommended_no_contact_route": "use explicit GPL3 same-upstream snapshot and independently implement required Windows/live-buffer additions; approval before core migration"
+  },
+  "limitations": [
+    "Repository commits and declared authorship are evidence, not a judicial ownership determination",
+    "No later license was retroactively applied to an earlier commit",
+    "No binaries, dependencies or source were published",
+    "No contact with maintainers",
+    "No production code, third-party licenses or Git history changed by this tool"
+  ]
+}

@@ -1,4 +1,4 @@
-param([ValidateSet('lock','rust','protocol','release','inventory','ui','python','deployment','all')][string]$Stage='all',[string]$TargetDirectory)
+param([ValidateSet('lock','rust','protocol','release','inventory','ui','python','all')][string]$Stage='all')
 $ErrorActionPreference='Stop'
 $repo=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $stamp=Get-Date -Format 'yyyyMMdd-HHmmss'
@@ -6,8 +6,8 @@ $record=Join-Path $repo ('local-validation\'+$stamp+'-'+$Stage)
 $null=New-Item -ItemType Directory -Path $record
 Push-Location $repo
 try {
-    $env:CARGO_TARGET_DIR=if($TargetDirectory){[IO.Path]::GetFullPath($TargetDirectory)}else{Join-Path $repo 'target\readiness'}
-    $env:DESKAUDIO_LINK_MAP=Join-Path $env:CARGO_TARGET_DIR 'release/desk-audio-link.map'
+    $env:CARGO_TARGET_DIR=Join-Path $repo 'target\readiness'
+    $env:DESKAUDIO_LINK_MAP=Join-Path $repo 'target/readiness/release/desk-audio-link.map'
     # Apply to Rust sources, macro locations and panic messages, not just external PDBs.
     $taskProfile=[Environment]::GetFolderPath('UserProfile')
     $env:CARGO_ENCODED_RUSTFLAGS=@(('--remap-path-prefix='+$taskProfile+'=/local'),('--remap-path-prefix='+$taskProfile.Replace('\','/')+'=/local'),('--remap-path-prefix='+$repo+'=/src'),('--remap-path-prefix='+$repo.Replace('\','/')+'=/src')) -join [char]31
@@ -28,7 +28,6 @@ try {
         rust=@('test --workspace --all-targets --locked --offline')
         protocol=@('test --manifest-path vendor/airplay2-gpl3/Cargo.toml -p airplay-audio --lib --offline')
         release=@('build -p conexion-airplay --release --locked --offline')
-        deployment=@('test -p conexion-airplay --lib runtime_prerequisites --locked --offline','test -p conexion-airplay --lib legal::tests --locked --offline')
         inventory=@('metadata --locked --offline --format-version 1 --filter-platform x86_64-pc-windows-msvc','tree --locked --offline -p conexion-airplay --target x86_64-pc-windows-msvc --edges normal,build')
     }
     if($Stage -in @('ui','python')) {
