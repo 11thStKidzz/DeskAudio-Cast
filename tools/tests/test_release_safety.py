@@ -57,8 +57,11 @@ class ReleaseSafetyTests(unittest.TestCase):
             self.assertNotIn("gh release upload",active)
             self.assertNotIn("  push:",active)
         gates=json.loads((ROOT/"RELEASE_GATES.json").read_text(encoding="utf-8"))
-        self.assertIs(gates["public_distribution_authorized"],False)
-        self.assertEqual(gates["gates"]["protocol_license_compatibility"],"active_gpl3_source_migration_verified_other_distribution_gates_pending")
+        self.assertIs(gates["automatic_publication_authorized"],False)
+        self.assertIs(gates["store_submission_authorized"],False)
+        self.assertEqual(gates["protocol_source"],"vendor/airplay2-gpl3")
+        self.assertEqual(gates["protocol_revision"],"f824007798f71605307384829800273a4dbbcee2")
+        self.assertIn('license = "GPL-3.0-or-later"',(ROOT/'Cargo.toml').read_text(encoding='utf-8'))
 
 if __name__=="__main__":
     unittest.main()

@@ -1,4 +1,9 @@
 {
+  "automatic_publication_authorized": false,
+  "manual_source_publication_authorized": true,
+  "store_submission_authorized": false,
+  "protocol_source": "vendor/airplay2-gpl3",
+  "protocol_revision": "f824007798f71605307384829800273a4dbbcee2",
   "version": "0.1.13",
   "msix_version": "1.0.13.0",
   "release_kind": "audio_stability_update",
