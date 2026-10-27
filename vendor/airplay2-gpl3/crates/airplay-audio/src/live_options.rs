@@ -28,6 +28,7 @@ pub struct UnderrunEvent {
 }
 #[derive(Clone, Debug, Default)]
 pub struct LiveSnapshot {
+    pub elapsed_ms:u64,
     pub queued_blocks:usize, pub queue_drops:u64, pub stale_drops:u64,
     pub packets_sent:u64, pub send_errors:u64, pub encoder_buffer_ms:f64,
     pub underruns:u64, pub max_queue_age_us:u64,
@@ -52,6 +53,7 @@ pub struct LiveDiagnosticsHandle {
 impl LiveDiagnosticsHandle {
     pub fn snapshot(&self) -> LiveSnapshot {
         let guard=self.measurements.lock().unwrap(); let mut s=guard.values.clone();
+        s.elapsed_ms=guard.began.elapsed().as_millis().min(u64::MAX as u128) as u64;
         s.queued_blocks=guard.arrivals.len();
         s.underrun_events=guard.events.iter().cloned().collect();
         let mut ages:Vec<_>=guard.ages.iter().copied().collect();drop(guard);

@@ -1,11 +1,11 @@
 # 桌面声渡 / DeskAudio Cast
 
-Windows 系统音频投送工具，版本 0.1.12（MSIX 1.0.12.0），x64。
+Windows 系统音频投送工具，版本 0.1.13（MSIX 1.0.13.0），x64。
 使用 WASAPI 回环捕获所选输出的声音，以 ALAC 编码发送到可信网络中的单台兼容接收设备。无需虚拟声卡。
 支持设备发现、音量、三档模式、托盘控制、可选开机启动与自动投送、六种界面语言和本地诊断。
 延迟与兼容性受网络、设备和系统影响；不承诺零延迟或游戏级同步。不提供屏幕投射、多房间或立体声配对功能。
 
-A Windows system-audio sender, version 0.1.12 (MSIX 1.0.12.0), x64.
+A Windows system-audio sender, version 0.1.13 (MSIX 1.0.13.0), x64.
 WASAPI output loopback and ALAC transport to a single compatible receiver on a trusted network, without a virtual audio cable.
 Includes discovery, volume, three modes, tray controls, optional startup/automatic sending, six UI languages and local diagnostics.
 Latency and compatibility vary; zero latency and gaming-grade synchronization are not guaranteed. Screen casting, multi-room and stereo pairs are not offered.
@@ -21,8 +21,8 @@ If WebView2 is absent, the app explains how to install it from Microsoft; there 
 
 ## 对应源码 / Corresponding source
 
-https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12
-请下载 / Download **DeskAudioCast-0.1.12-corresponding-source.zip**。
+https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13
+请下载 / Download **DeskAudioCast-0.1.13-corresponding-source.zip**。
 该完整归档含锁定依赖及离线构建资料；GitHub 自动生成的源码 ZIP 不包含全部依赖，不能替代完整包。
 The complete archive includes locked dependency sources and offline build inputs. GitHub's automatic source ZIP does not replace it.
 按 / Follow [SOURCE_BUILDING.md](SOURCE_BUILDING.md). SHA-256 and source fingerprint accompany the release.

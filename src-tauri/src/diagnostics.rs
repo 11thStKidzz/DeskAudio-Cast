@@ -10,6 +10,15 @@ use std::time::Instant;
 
 pub type SessionRecord = Arc<Mutex<Record>>;
 
+const FALLBACK_WINDOW_MS: u64 = 30_000;
+fn recent_underruns(now_ms: u64, times: impl Iterator<Item = u64>) -> usize {
+    times.filter(|&at| at <= now_ms && now_ms - at <= FALLBACK_WINDOW_MS).count()
+}
+fn underruns_unstable(total: u64, now_ms: u64, times: &[u64]) -> bool {
+    // Preserve protection for a legacy transport with no event timeline.
+    total >= 3 && (times.is_empty() || recent_underruns(now_ms, times.iter().copied()) >= 3)
+}
+
 /// Export only our typed, privacy-filtered report; no raw log attachment.
 pub fn save_report(dir: &std::path::Path, report: &serde_json::Value) -> Result<std::path::PathBuf, String> {
     use std::io::Write;
@@ -156,7 +165,9 @@ impl Record {
         self.policy == LocalBufferPolicy::LowLatency
             && self.outputs.iter().any(|output| {
                 let live = output.sender.snapshot();
-                live.underruns >= 3 || live.queue_drops > 0 || live.stale_drops > 0
+                let times: Vec<_> = live.underrun_events.iter().map(|e| e.elapsed_ms).collect();
+                underruns_unstable(live.underruns, live.elapsed_ms, &times)
+                    || live.queue_drops > 0 || live.stale_drops > 0
             })
     }
     pub fn streaming(&mut self) {
@@ -165,8 +176,8 @@ impl Record {
     pub fn capture_fallback_trigger(&mut self){
         if self.fallback_trigger.is_none(){
             self.fallback_trigger=Some(serde_json::json!({"elapsed_ms":self.began.elapsed().as_millis() as u64,
-                "rule":"lifetime_underruns_gte_3_or_any_queue_or_stale_drop","monitor_interval_ms":2000,
-                "outputs":self.outputs.iter().map(|o|{let s=o.sender.snapshot();serde_json::json!({"underruns":s.underruns,"queue_drops":s.queue_drops,"stale_drops":s.stale_drops})}).collect::<Vec<_>>() }));
+                "rule":"recent_underruns_gte_3_or_any_queue_or_stale_drop","window_ms":FALLBACK_WINDOW_MS,"monitor_interval_ms":2000,
+                "outputs":self.outputs.iter().map(|o|{let s=o.sender.snapshot();serde_json::json!({"underruns":s.underruns,"live_elapsed_ms":s.elapsed_ms,"recent_underruns":recent_underruns(s.elapsed_ms,s.underrun_events.iter().map(|e|e.elapsed_ms)),"queue_drops":s.queue_drops,"stale_drops":s.stale_drops})}).collect::<Vec<_>>() }));
         }
     }
     pub fn record_failure(&mut self, stage: &'static str) {
@@ -201,7 +212,7 @@ impl Record {
                 "encoder_buffer_ms": s.encoder_buffer_ms, "encoder_underruns": s.underruns, "max_input_queue_age_ms": s.max_queue_age_us as f64 / 1000.0,
                 "capture_delivery_to_udp_p95_ms": s.capture_to_send_p95_us.map(|v| v as f64 / 1000.0),
                 "first_packet_age_ms": s.first_packet_age_us.map(|v| v as f64 / 1000.0),
-                "max_encode_us":s.max_encode_us,"max_wake_late_us":s.max_wake_late_us,
+                "max_encode_us":s.max_encode_us,"max_wake_late_us":s.max_wake_late_us,"live_elapsed_ms":s.elapsed_ms,
                 "underrun_events":s.underrun_events.iter().map(|e|serde_json::json!({
                     "live_elapsed_ms":e.elapsed_ms,"producer_blocks":e.producer_blocks,"decoder_blocks":e.decoder_blocks,
                     "input_queued_blocks":e.queued_blocks,"last_supply_gap_us":e.last_supply_gap_us,"last_decode_gap_us":e.last_decode_gap_us,
@@ -269,7 +280,7 @@ impl DiagnosticState {
             .map(|r| r.lock().unwrap().snapshot())
             .collect();
         serde_json::json!({
-            "schema_version": 2, "app_version": env!("CARGO_PKG_VERSION"),
+            "schema_version": 3, "app_version": env!("CARGO_PKG_VERSION"),
             "build_revision": option_env!("DESKAUDIO_BUILD_REVISION"),
             "source_fingerprint": option_env!("DESKAUDIO_SOURCE_FINGERPRINT"),
             "os": std::env::consts::OS, "architecture": std::env::consts::ARCH,
@@ -282,6 +293,22 @@ impl DiagnosticState {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn sparse_incidents_over_twenty_five_hours_are_not_current_instability() {
+        // Actual latest diagnostic, three separate incidents across ~25h.
+        let events = [5_859_361, 80_702_891, 89_599_858];
+        assert!(!underruns_unstable(3, 89_602_438, &events));
+        assert_eq!(recent_underruns(89_602_438, events.into_iter()), 1);
+    }
+    #[test]
+    fn genuine_burst_still_falls_back_and_old_events_expire() {
+        let events = [1000, 1100, 1200];
+        assert!(underruns_unstable(3, 2000, &events));
+        assert!(!underruns_unstable(3, 31_201, &events));
+        assert!(underruns_unstable(3, 2000, &[]));
+        assert!(!underruns_unstable(2, 2000, &events));
+        assert_eq!(recent_underruns(1000, [1001, 999].into_iter()), 1);
+    }
     #[test]
     fn only_experimental_mode_falls_back_after_real_queue_overflow() {
         let state = DiagnosticState::default();

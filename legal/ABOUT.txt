@@ -1,4 +1,5 @@
-桌面声渡 / DeskAudio Cast 0.1.12
+桌面声渡 / DeskAudio Cast 0.1.13
+
 
 把 Windows 系统输出中正在播放的声音，通过可信局域网发送到兼容接收设备。
 这是基于 AirSend 和 airplay2-rs 修改的独立开源应用，不是 Apple 或上游项目的官方产品。

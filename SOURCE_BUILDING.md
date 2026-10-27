@@ -1,8 +1,8 @@
-# 桌面声渡 0.1.12：对应源码构建 / Corresponding-source build
+# 桌面声渡 0.1.13：对应源码构建 / Corresponding-source build
 
 目标：Windows x64，Windows 10 2004（19041）或更新版本。
 
-完整源码下载：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12 。选择 DeskAudioCast-0.1.12-corresponding-source.zip；GitHub 自动生成的源码包不包含锁定依赖快照。
+完整源码下载：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13 。选择 DeskAudioCast-0.1.13-corresponding-source.zip；GitHub 自动生成的源码包不包含锁定依赖快照。
 
 ## 内容
 
@@ -24,7 +24,7 @@
 
 本地打包：使用 tools/package_windows.ps1 -ReleaseDirectory <已验证的Release目录> -Makensis <NSIS编译器路径>。需要已有官方 NSIS 3.11 便携工具及 Windows SDK MakeAppx、MakePri；不会自动下载安装。NSIS 原始官方 ZIP SHA-256 为 c7d27f780ddb6cffb4730138cd1591e841f4b7edb155856901cdf5f214394fa1，下载地址见 legal/native/COMPONENTS.json。打包脚本、原始许可、图标、安装/卸载列表生成规则都在源码中。
 
-应用版本 0.1.12；MSIX 独立包版本 1.0.12.0（Store 要求首段不为 0、第四段为 0）。公开身份为 11thStKidzz.DeskAudioCast，Publisher 为 CN=F8685FFB-73E3-4962-83BD-CEE132D1ADF6，发布者显示名 11thStKidzz。这些是公开包元数据，不是签名私钥。packaging/windows/Strings 经 MakePri 编译：en-US 默认 DeskAudio Cast，简体中文桌面声渡。工具核对精确身份、PRI 内容与 ASCII 文件名，输出未签名 store-upload.msix 候选。它不会上传、提交或签名；本机不能直接双击可信安装，Store 审核发布后由 Microsoft 签名。不擅自添加本地受信任证书。提交准备见 packaging/store/SUBMISSION.md。
+应用版本 0.1.13；MSIX 独立包版本 1.0.13.0（Store 要求首段不为 0、第四段为 0）。公开身份为 11thStKidzz.DeskAudioCast，Publisher 为 CN=F8685FFB-73E3-4962-83BD-CEE132D1ADF6，发布者显示名 11thStKidzz。这些是公开包元数据，不是签名私钥。packaging/windows/Strings 经 MakePri 编译：en-US 默认 DeskAudio Cast，简体中文桌面声渡。工具核对精确身份、PRI 内容与 ASCII 文件名，输出未签名 store-upload.msix 候选。它不会上传、提交或签名；本机不能直接双击可信安装，Store 审核发布后由 Microsoft 签名。不擅自添加本地受信任证书。提交准备见 packaging/store/SUBMISSION.md。
 
 构建结果在新解压目录的 target/archive-check/release。输出需要 WebView2 Runtime；MSIX 的 VC++ 桌面框架由声明依赖提供，独立 NSIS 使用系统 VC++ x64 运行库。源码构建不等于安装或商店认证。
 

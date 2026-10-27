@@ -14,6 +14,8 @@ use std::time::{Duration, Instant};
 mod queue;
 #[cfg(any(windows, test))]
 mod silence_clock;
+#[cfg(any(windows, test))]
+mod capture_drain;
 pub use queue::{CaptureDiagnostics, CapturePolicy, CaptureReceiver, CaptureSender};
 
 use thiserror::Error;

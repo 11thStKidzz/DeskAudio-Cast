@@ -2,7 +2,7 @@
   "upstream": "https://github.com/lmcgartland/airplay2-rs",
   "revision": "f824007798f71605307384829800273a4dbbcee2",
   "grant": "GPL-3.0-or-later",
-  "date": "2026-10-22",
+  "date": "2026-10-27",
   "old_fork_copied": false,
   "records": [
     {
@@ -44,7 +44,7 @@
     {
       "path": "crates/airplay-audio/src/live_options.rs",
       "original_sha256": null,
-      "snapshot_sha256": "d613d9ef9ddaf71a66038831822e893d6018e5cea67a49282f042fd5a7009399",
+      "snapshot_sha256": "7e3a5e04d964b2c684335a7f7e1656ec475f36b277e03a47e33752c12ef355eb",
       "status": "added"
     },
     {
@@ -158,7 +158,7 @@
     {
       "path": "MODIFICATIONS.md",
       "original_sha256": null,
-      "snapshot_sha256": "095bb1c870c320220b962505cd852bc975abbad5e2521637f368105d2b472084",
+      "snapshot_sha256": "38641cc8da5c05e1d6ec775f9bf009300ec4a324c3e7dc5e4970717fe0a5e3d9",
       "status": "added"
     }
   ],

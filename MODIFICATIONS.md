@@ -1,4 +1,12 @@
+# 0.1.13 · 2026-10-28
+
+Promotes the 2026-10-27 WASAPI drain/recent-underrun repair after the user reported one day of normal playback. Application/MSIX versions, corresponding-source links, bilingual public notices and the local-package versions are synchronized. Audio buffers, ALAC format, dependencies and sending engine are unchanged. This is not a claim of new clean-Windows, WACK or comprehensive hardware certification. No Microsoft Store submission is performed by the build tools.
+
+将使用者报告一天正常的音频修复版更新为0.1.13；同步版本、源码入口及中英文说明。未调整三档缓冲、ALAC格式或依赖，不把用户体验反馈当作全环境认证。
+
 # 桌面声渡修改记录
+
+2026-10-27（0.1.12本地音频修复测试构建，未作为商店更新）：WASAPI共享模式每次唤醒后取完已积压的系统包，单轮有界、未取完立即续读，不再只取一个就等待新事件；记录原生数据中断/时间戳错误/静音补帧计数。极低档回退改为30秒内至少3次欠载，保留真实队列溢出/过期数据的即时保护；不改变三档缓冲、ALAC编码、样本顺序或格式。增加日志中真实25小时稀疏事件和合并唤醒的回归测试。完整修改后源码随本地测试交付提供，不将正式v0.1.12源码链接冒充本构建的对应源码；旧发行包及输入诊断不改动。
 
 2026-10-22（应用0.1.12，MSIX1.0.12.0）：按发布者选择，从已云电脑验收的20261022-r3完整源码快照制作轻量链接修正版，不采用0.1.11内置Fixed WebView2/VC安装器方案。仅更新本项目GitHub用户名、必要的版本与同版本对应源码地址，并增加链接回归检查。隐私处理规则、GPL授权、第三方版权、100个音频/协议Rust文件及三档参数不变。保留既有公开版本和Git历史，不上传安装包或操作Partner Center。
 

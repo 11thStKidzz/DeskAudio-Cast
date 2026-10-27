@@ -1,4 +1,4 @@
-桌面声渡 / DeskAudio Cast 0.1.12
+桌面声渡 / DeskAudio Cast 0.1.13
 
 系统要求：Windows 10 2004/build 19041 或更新的 Windows 10/11，x64，以及可互通可信网络中的兼容 HomePod。
 需要 Microsoft WebView2 Runtime。MSIX 使用 Microsoft Store 部署的 VCLibs Desktop 框架依赖；独立 NSIS 需要系统 VC++ x64 运行库。
@@ -7,26 +7,26 @@ WebView2 官方安装：https://developer.microsoft.com/microsoft-edge/webview2/
 VC++ 官方下载：https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist
 
 商店安装：从 Microsoft Store 安装，包签名及框架部署由商店处理。
-独立安装：运行 DeskAudioCast-0.1.12-x64-setup.exe，仅安装到当前用户；本地 NSIS 未签名，Windows 可能显示安全提示，不要关闭系统安全检查。
+独立安装：运行 DeskAudioCast-0.1.13-x64-setup.exe，仅安装到当前用户；本地 NSIS 未签名，Windows 可能显示安全提示，不要关闭系统安全检查。
 安装不会自动启动或连接。打开程序，选择设备，开始投送，在电脑播放音频。
 推荐先用均衡模式。极低延迟模式可能因网络或设备欠载而自动回退；不承诺零延迟。
 关闭主窗口进入托盘，右键可调整音量、停止/继续或退出。
 升级/卸载前请退出该安装目录的程序；安装器不会强制停止投送。
 卸载：Windows 设置→应用→桌面声渡；独立 NSIS 也可运行安装目录 Uninstall.exe。
 卸载保留设置、旧日志、导出诊断及用户自行放入的文件；清除方法见 legal/PRIVACY.txt。
-完整对应源码：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12
-下载 DeskAudioCast-0.1.12-corresponding-source.zip。GPL 全文及第三方版权/许可随包提供；收费不取消适用开源权利。
+完整对应源码：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13
+下载 DeskAudioCast-0.1.13-corresponding-source.zip。GPL 全文及第三方版权/许可随包提供；收费不取消适用开源权利。
 发布者：11thStKidzz。支持：woyaotingspotify@gmail.com。
 
 Requirements: Windows 10 build 19041 or later Windows 10/11, x64, a compatible HomePod on a trusted reachable network, and Microsoft WebView2 Runtime.
 MSIX declares the Store-deployed VCLibs Desktop framework. The standalone NSIS installer requires the system VC++ x64 runtime.
 No automatic runtime download/installation, driver, virtual audio cable or firewall changes.
-Install via Microsoft Store, or use DeskAudioCast-0.1.12-x64-setup.exe for current-user installation. The local NSIS installer is unsigned; do not disable Windows security checks.
+Install via Microsoft Store, or use DeskAudioCast-0.1.13-x64-setup.exe for current-user installation. The local NSIS installer is unsigned; do not disable Windows security checks.
 Installation does not automatically launch or connect. Open the app, select a receiver, start sending and play audio on Windows.
 Start with Balanced. Ultra-low mode may fall back when buffer faults are detected; zero latency is not guaranteed.
 Closing the window keeps the app in the tray. Right-click for volume, stop/resume or quit.
 Quit before upgrade/uninstall; the installer does not force-stop playback.
 Uninstall in Windows Settings, or run Uninstall.exe for NSIS. Settings, logs, exported diagnostics and user-added files are preserved; see legal/PRIVACY.txt for clearing instructions.
-Matching complete source: https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12 , file DeskAudioCast-0.1.12-corresponding-source.zip.
+Matching complete source: https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13 , file DeskAudioCast-0.1.13-corresponding-source.zip.
 GPL and third-party notices accompany the software. Charging does not remove applicable open-source rights.
 Publisher: 11thStKidzz. Support: woyaotingspotify@gmail.com.

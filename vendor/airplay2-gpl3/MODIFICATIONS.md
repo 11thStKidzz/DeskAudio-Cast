@@ -20,6 +20,8 @@ Source: lmcgartland/airplay2-rs, f824007798f71605307384829800273a4dbbcee2.
 This is a local test implementation, not a publishable or legally cleared distribution.
 # 2026-10-22：实时期限和数值诊断
 
+2026-10-27：LiveSnapshot新增与欠载事件同一起点的elapsed_ms，仅供应用判断近期回退窗口；不更改实时音频工作线程、PCM/ALAC、RTP或缓冲参数。保留GPL-3.0-or-later和原始版权。本修改对应本地音频修复测试构建。
+
 仅在原定发送期限已经到达后才将空输入计为欠载，避免在期限前立即触发重新缓冲；不增加任何三档缓冲参数，不更改 ALAC 编码、样本内容或回退规则。
 新增最多 64 次欠载的相对时间/数据块供给与消费计数/编码耗时/调度迟到，不包含音频或凭据；将快照百分位排序移到音频共享锁外。
 这些改动修复可由测试重现的提前判断问题，不宣称已经确定任何用户现场爆音的全部原因。

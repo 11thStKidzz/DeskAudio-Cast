@@ -21,6 +21,14 @@ pub struct CaptureDiagnostics {
     pub dropped_newest: u64,
     pub stale_drops: u64,
     pub max_delivery_age_ms: f64,
+    pub native_packets: u64,
+    pub native_frames: u64,
+    pub native_discontinuities: u64,
+    pub native_timestamp_errors: u64,
+    pub max_native_packets_per_wake: u64,
+    pub native_drain_limit_hits: u64,
+    pub synthetic_silence_blocks: u64,
+    pub synthetic_silence_slots_skipped: u64,
 }
 
 struct Queue {
@@ -73,6 +81,22 @@ impl Queue {
 }
 
 impl CaptureSender {
+    #[cfg(any(windows, test))]
+    pub(crate) fn observe_native_batch(&self, batch: &crate::capture_drain::DrainBatch) {
+        let mut q = self.0.queue.lock().unwrap();
+        q.stats.native_packets += batch.packets;
+        q.stats.native_frames += batch.frames;
+        q.stats.native_discontinuities += batch.discontinuities;
+        q.stats.native_timestamp_errors += batch.timestamp_errors;
+        q.stats.max_native_packets_per_wake = q.stats.max_native_packets_per_wake.max(batch.packets);
+        q.stats.native_drain_limit_hits += u64::from(batch.limit_reached);
+    }
+    #[cfg(windows)]
+    pub(crate) fn observe_silence(&self, emitted: u64, skipped: u64) {
+        let mut q = self.0.queue.lock().unwrap();
+        q.stats.synthetic_silence_blocks += emitted;
+        q.stats.synthetic_silence_slots_skipped += skipped;
+    }
     pub fn len(&self) -> usize {
         self.0.queue.lock().unwrap().frames.len()
     }

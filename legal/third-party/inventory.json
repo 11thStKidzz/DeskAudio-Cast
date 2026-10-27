@@ -496,7 +496,7 @@
     },
     {
       "name": "audio-capture",
-      "version": "0.1.12",
+      "version": "0.1.13",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -514,7 +514,7 @@
     },
     {
       "name": "audio-encode",
-      "version": "0.1.12",
+      "version": "0.1.13",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -948,7 +948,7 @@
     },
     {
       "name": "cap-core",
-      "version": "0.1.12",
+      "version": "0.1.13",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",
@@ -1241,7 +1241,7 @@
     },
     {
       "name": "conexion-airplay",
-      "version": "0.1.12",
+      "version": "0.1.13",
       "source": "workspace",
       "repository": null,
       "declared_license": "GPL-3.0-or-later",

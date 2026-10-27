@@ -1,6 +1,6 @@
-# Microsoft Store 提交说明（发布者操作资料，2026-10-22）
+# Microsoft Store 提交说明（发布者操作资料，2026-10-28）
 
-不自动上传、提交、接受协议或选择价格。软件 0.1.12 基于用户已实测通过的 0.1.9；MSIX 1.0.12.0 为独立技术包版本，不是正式发布承诺。
+不自动上传、提交、接受协议或选择价格。软件 0.1.13 基于用户报告连续一天使用正常的2026-10-27音频修复版；MSIX技术包版本为1.0.13.0。是否通过审核由Microsoft决定。
 
 ## 身份与名称
 
@@ -19,7 +19,7 @@
 
 采用 ALAC 编码，在当前 44.1 kHz、16 位立体声传输格式下保留无损编码；不承诺任意源格式全链路位精确。延迟受网络和接收设备影响，不承诺零延迟或游戏级同步。需要兼容的实际音箱；本版本不以屏幕投射、多房间或立体声配对为卖点。
 
-这是独立修改的开源应用，不是 Apple 官方或认证产品。HomePod 和 AirPlay 仅用于兼容性说明。按 GPLv3 或更新版本提供，第三方保留各自许可；付费分发不限制适用开源许可证授予的修改、复制和再分发权利。完整对应源码：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12 。
+这是独立修改的开源应用，不是 Apple 官方或认证产品。HomePod 和 AirPlay 仅用于兼容性说明。按 GPLv3 或更新版本提供，第三方保留各自许可；付费分发不限制适用开源许可证授予的修改、复制和再分发权利。完整对应源码：https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13 。
 
 建议功能条目：系统声音无线投送；局域网设备发现；三档播放模式；托盘音量及停止/继续；可选自动投送和开机启动；本地诊断导出；中英西俄德日界面。只宣称实际已实现功能，复杂网络/设备组合不保证兼容。
 
@@ -32,7 +32,7 @@ DeskAudio Cast includes device discovery, a single-speaker connection, volume co
 
 ALAC encoding is lossless for the application's 44.1 kHz, 16-bit stereo transport format; arbitrary source formats are not claimed to be bit-perfect throughout the pipeline. Latency and compatibility depend on your network and receiver. Zero latency and gaming-grade synchronization are not guaranteed. A compatible physical speaker is required. Screen casting, multi-room and stereo-pair operation are not advertised features.
 
-An independent modified open-source application, not an official or Apple-certified product. HomePod and AirPlay names describe compatibility only. Applicable code is GPLv3-or-later, with third-party licenses retained. A paid download does not remove recipients' open-source modification, copying and redistribution rights. Complete corresponding source: https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.12 .
+An independent modified open-source application, not an official or Apple-certified product. HomePod and AirPlay names describe compatibility only. Applicable code is GPLv3-or-later, with third-party licenses retained. A paid download does not remove recipients' open-source modification, copying and redistribution rights. Complete corresponding source: https://github.com/11thStKidzz/DeskAudio-Cast/releases/tag/v0.1.13 .
 
 Features: system audio casting; LAN discovery; three playback modes; tray volume and stop/resume; optional automatic sending and startup; local diagnostics; Chinese, English, Spanish, Russian, German and Japanese interfaces.
 
@@ -64,10 +64,16 @@ No trial, purchase API or app-level DRM is implemented. Price, trial settings, s
 3. 当前 MSIX 是未签名上传候选，不能靠双击证明可安装。WACK 工具虽在本机，可信安装/签名和认证测试尚未完成；可在获准后选择测试证书或商店私有测试分发，不能擅自信任证书、上传或正式发布。
 4. 对签名 MSIX 验证首次启动、系统声音/网络、托盘、数据重定向、StartupTask、升级/卸载；干净 Windows 的 WebView2/VC++ 依赖部署也必须验收。0.1.9 NSIS 的用户验收不替代这些测试。
 
-## 官方依据（2026-10-22 核查）
+## 官方依据（2026-10-28 核查）
 
 - [包身份、版本及签名要求](https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/app-package-requirements)
 - [隐私文本与支持邮箱](https://learn.microsoft.com/en-us/windows/apps/publish/publish-your-app/msix/support-info)
 - [Store 政策 v7.20](https://learn.microsoft.com/en-us/windows/apps/publish/store-policies)
 - [公开 ADA v8.10](https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/microsoft/store/documents/legal/ada/fy26/MS.Store.ADAv8.10.EN.US.pdf)
 - [MakePri](https://learn.microsoft.com/en-us/windows/uwp/app-resources/compile-resources-manually-with-makepri)
+
+## 本次更新说明 / What is new in 0.1.13
+
+改善Windows音频包读取，减少偶发音频供给中断；避免长时间运行中稀疏欠载造成不必要的模式回退；补充不含音频内容的诊断。三档缓冲参数和ALAC音质保持不变。
+
+Improves Windows audio packet draining, avoids unnecessary mode fallback after widely separated underruns, and adds numeric diagnostics without audio content. Buffer profiles and ALAC quality are unchanged.

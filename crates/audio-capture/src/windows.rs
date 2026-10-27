@@ -401,9 +401,22 @@ fn capture_thread_main(
 
         // Drenamos lo que haya disponible y, mientras tengamos ≥ un chunk,
         // empaquetamos y mandamos.
-        capture_client
-            .read_from_device_to_deque(&mut byte_queue)
-            .map_err(|e| format!("read_from_device_to_deque: {e}"))?;
+        // GetBuffer reads ONE native packet. Events can coalesce while this
+        // thread is delayed; waiting again with packets still pending can
+        // starve the sender even when Windows already has captured PCM.
+        let native_batch = crate::capture_drain::drain_pending(64, || {
+            if !running.load(Ordering::SeqCst) { return Ok::<_, String>(None); }
+            let frames = capture_client.get_next_nbr_frames()
+                .map_err(|e| format!("get_next_nbr_frames: {e}"))?.unwrap_or(0);
+            if frames == 0 { return Ok(None); }
+            let flags = capture_client.read_from_device_to_deque(&mut byte_queue)
+                .map_err(|e| format!("read_from_device_to_deque: {e}"))?;
+            Ok(Some(crate::capture_drain::NativePacket {
+                frames, discontinuity: flags.data_discontinuity,
+                timestamp_error: flags.timestamp_error,
+            }))
+        })?;
+        tx.observe_native_batch(&native_batch);
 
         let mut produced = false;
         while byte_queue.len() >= chunk_bytes {
@@ -475,15 +488,17 @@ fn capture_thread_main(
             // up without burying resumed audio under an unbounded backlog.
             let (due, skipped) = silence_clock.take_due(now, 4usize.saturating_sub(tx.len()));
             silence_slots_skipped += skipped;
+            let mut emitted = 0;
             for index in 0..due {
                 let mut frame =
                     CapturedFrame::new(vec![0i16; chunk_samples], target_channels, target_rate);
                 frame.captured_at = now - chunk_duration * (due - index - 1) as u32;
                 match tx.try_send(frame) {
-                    Ok(()) => chunks_silence += 1,
+                    Ok(()) => { chunks_silence += 1; emitted += 1; },
                     Err(_) => chunks_dropped += 1,
                 }
             }
+            tx.observe_silence(emitted, skipped);
         } else {
             silence_clock = crate::silence_clock::SilenceClock::new(
                 last_real_audio + SILENCE_AFTER_IDLE,
@@ -510,6 +525,7 @@ fn capture_thread_main(
         // Esperar hasta el umbral de inactividad evita el hueco inicial de 3 s
         // antes de empezar el silencio, pero conserva la espera por eventos
         // durante el audio normal.
+        if native_batch.limit_reached { continue; }
         let wait_ms = if idle {
             let remaining = silence_clock
                 .next_deadline()
